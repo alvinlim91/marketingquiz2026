@@ -42,6 +42,14 @@ function getEligibleCount() {
   return state.selectedChapters.reduce((total, chapter) => total + getChapterPool(chapter).length, 0);
 }
 
+function getEncounteredCount() {
+  const history = readHistory();
+  return state.selectedChapters.reduce((total, chapter) => {
+    const ids = Array.isArray(history[chapter]) ? new Set(history[chapter]) : new Set();
+    return total + ids.size;
+  }, 0);
+}
+
 function getRequestedCount() {
   return state.countMode === "custom" ? Number(state.customCount) : Number(state.countMode);
 }
@@ -80,15 +88,26 @@ function renderHome() {
   const validCount = eligibleCount > 0 && requestedCount >= 1 && requestedCount <= eligibleCount;
 
   app.innerHTML = `
-    <section class="hero">
-      <p class="eyebrow">Study mode · textbook grounded</p>
-      <h2>Practice marketing the way your exam will test it.</h2>
-      <p>Build understanding across the chapters of <em>The Modern Marketing Playbook</em> with four-option questions, careful feedback, and printed textbook references.</p>
+    <section class="hero home-hero">
+      <div>
+        <p class="eyebrow">The Modern Marketing Playbook · Study mode</p>
+        <h2>Marketing MCQ Practice</h2>
+        <p>Build understanding chapter by chapter with textbook-grounded questions, careful feedback, and printed page references.</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true">M</div>
     </section>
+    <div class="study-metrics" aria-label="Question bank summary">
+      <div class="metric"><strong>${chapters.length}</strong><span>Chapters</span></div>
+      <div class="metric"><strong>${questionBank.length}</strong><span>Questions</span></div>
+      <div class="metric"><strong>${getEncounteredCount()} / ${eligibleCount}</strong><span>Selected questions encountered</span></div>
+    </div>
     <section class="setup-grid" aria-label="Quiz setup">
       <div class="card setup-card">
-        <div class="field">
-          <label>Chapters</label>
+        <div class="field setup-field">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div><h3>Select chapters</h3><p>Choose the chapters you want to include.</p></div>
+          </div>
           <div class="chapter-actions">
             <label class="select-all-row"><input id="select-all" type="checkbox" ${allSelected ? "checked" : ""} /> <span>Select All</span></label>
             <span class="field-help">${state.selectedChapters.length} of ${chapters.length} selected</span>
@@ -102,28 +121,31 @@ function renderHome() {
           </div>
           <p class="selection-summary">${state.selectedChapters.length ? `${eligibleCount} eligible unique questions across the selected chapters.` : "Select at least one chapter to start."}</p>
         </div>
-        <div class="field">
-          <label>Number of questions</label>
+        <div class="field setup-field count-field">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <div><h3>How many questions?</h3><p>Choose a preset or enter a custom amount.</p></div>
+          </div>
           <div class="quick-counts" aria-label="Question count">
-            ${[10, 20, 30, 50].map((count) => `<button class="chip ${state.countMode === String(count) ? "selected" : ""}" type="button" data-count-mode="${count}" ${count > eligibleCount ? "disabled" : ""}>${count}</button>`).join("")}
-            <button class="chip ${state.countMode === "custom" ? "selected" : ""}" type="button" data-count-mode="custom">Custom</button>
+            ${[10, 20, 30, 50].map((count) => `<button class="count-choice ${state.countMode === String(count) ? "selected" : ""}" type="button" data-count-mode="${count}" ${count > eligibleCount ? "disabled" : ""}><strong>${count}</strong><span>questions</span></button>`).join("")}
+            <button class="count-choice custom-choice ${state.countMode === "custom" ? "selected" : ""}" type="button" data-count-mode="custom"><strong>Custom</strong><span>your amount</span></button>
           </div>
           <div class="count-row custom-count-row">
             <label class="sr-only" for="custom-count-input">Custom question count</label>
             <input id="custom-count-input" type="number" min="1" max="${Math.max(eligibleCount, 1)}" value="${state.customCount}" inputmode="numeric" ${state.countMode === "custom" ? "" : "disabled"} />
-            <span class="field-help">Up to ${eligibleCount} eligible unique questions</span>
+            <span class="field-help">Maximum: ${eligibleCount} questions based on your selection</span>
           </div>
         </div>
-        <button class="primary-btn" id="start-btn" type="button" ${validCount ? "" : "disabled"}>Start Quiz</button>
+        <button class="primary-btn start-btn" id="start-btn" type="button" ${validCount ? "" : "disabled"}>Start Quiz <span aria-hidden="true">→</span></button>
       </div>
       <aside class="card side-card">
-        <h3>Balanced practice</h3>
-        <p class="side-copy">Questions will be distributed as evenly as possible across the chapters you select. Any remainder is assigned randomly.</p>
-        <ul>
-          <li id="ready-summary">${validCount ? `${requestedCount} questions ready across ${state.selectedChapters.length} chapter${state.selectedChapters.length === 1 ? "" : "s"}.` : "Choose chapters and a valid question count."}</li>
-          <li>Unseen questions are preferred first.</li>
-          <li>Every question has four options.</li>
-          <li>Printed textbook references remain unchanged.</li>
+        <div class="side-intro"><span class="side-icon" aria-hidden="true">✦</span><div><p class="eyebrow">Ready when you are</p><h3>Balanced practice</h3></div></div>
+        <p class="side-copy">Your quiz will be distributed as evenly as possible across the chapters you select, with unseen questions preferred first.</p>
+        <div class="ready-panel"><strong id="ready-summary">${validCount ? `${requestedCount} question${requestedCount === 1 ? "" : "s"} ready` : "Choose chapters and a valid count"}</strong><span>${state.selectedChapters.length} chapter${state.selectedChapters.length === 1 ? "" : "s"} selected</span></div>
+        <ul class="study-promises">
+          <li><span aria-hidden="true">✓</span> Four options per question</li>
+          <li><span aria-hidden="true">✓</span> Printed textbook references</li>
+          <li><span aria-hidden="true">✓</span> Progress saved locally</li>
         </ul>
         <button class="ghost-btn reset-history-btn" id="reset-history-btn" type="button">Reset question history</button>
       </aside>
@@ -157,7 +179,7 @@ function renderHome() {
     const liveCount = getRequestedCount();
     const liveValid = eligibleCount > 0 && liveCount >= 1 && liveCount <= eligibleCount;
     document.querySelector("#ready-summary").textContent = liveValid
-      ? `${liveCount} questions ready across ${state.selectedChapters.length} chapter${state.selectedChapters.length === 1 ? "" : "s"}.`
+      ? `${liveCount} question${liveCount === 1 ? "" : "s"} ready across ${state.selectedChapters.length} chapter${state.selectedChapters.length === 1 ? "" : "s"}.`
       : "Choose chapters and a valid question count.";
     document.querySelector("#start-btn").disabled = !liveValid;
   });
@@ -204,29 +226,31 @@ function renderQuiz() {
   const selectedOption = question.options.find((option) => option.id === state.selectedId);
   const isCorrect = isAnswered && selectedOption?.id === question.correctId;
   const progress = ((state.current + (isAnswered ? 1 : 0)) / state.quiz.length) * 100;
-  const chapterLabel = `Chapter ${question.chapter} · ${escapeHtml(getChapterTitle(question.chapter))}`;
+  const progressLabel = Math.round(progress);
+  const chapterTitle = getChapterTitle(question.chapter);
 
   app.innerHTML = `
-    <section class="quiz-top">
-      <div>
-        <p class="quiz-label">Question ${state.current + 1} of ${state.quiz.length}</p>
-        <h2 class="quiz-title">${escapeHtml(getChapterTitle(question.chapter))}</h2>
+    <section class="quiz-layout">
+      <div class="quiz-top">
+        <div class="quiz-progress-copy"><p class="quiz-label">Question ${state.current + 1} of ${state.quiz.length}</p><span>${progressLabel}% complete</span></div>
+        <div class="score-pill" aria-live="polite">Score: ${state.score} / ${state.answeredCount}</div>
       </div>
-      <div class="score-pill" aria-live="polite">Score: ${state.score} / ${state.answeredCount}</div>
-    </section>
-    <div class="progress-track" aria-label="Quiz progress"><div class="progress-fill" style="width: ${progress}%"></div></div>
+      <div class="progress-track" aria-label="Quiz progress"><div class="progress-fill" style="width: ${progress}%"></div></div>
     <section class="card question-card" aria-label="Question">
-      <div class="question-meta"><span>${chapterLabel}</span><span>${isAnswered ? "Answer submitted" : "Choose one answer"}</span></div>
-      <h3 class="question-text">${escapeHtml(question.prompt)}</h3>
+      <div class="question-meta"><span class="meta-chip">Chapter ${question.chapter}</span><span class="meta-topic">${escapeHtml(chapterTitle)}</span><span class="meta-page">Page ${escapeHtml(question.page)}</span></div>
+      <h2 class="question-text">${escapeHtml(question.prompt)}</h2>
       <div class="options" role="radiogroup" aria-label="Answer options">
         ${question.options.map((option, index) => `
-          <button class="option ${state.selectedId === option.id ? "selected" : ""}" type="button" data-option="${option.id}" ${isAnswered ? "disabled" : ""} role="radio" aria-checked="${state.selectedId === option.id}">
+          <button class="option ${state.selectedId === option.id ? "selected" : ""} ${isAnswered && option.id === question.correctId ? "correct" : ""} ${isAnswered && option.id === state.selectedId && option.id !== question.correctId ? "incorrect" : ""}" type="button" data-option="${option.id}" ${isAnswered ? "disabled" : ""} role="radio" aria-checked="${state.selectedId === option.id}" aria-label="${String.fromCharCode(65 + index)}. ${escapeHtml(option.text)}">
             <span class="option-key">${String.fromCharCode(65 + index)}</span>
             <span class="option-copy">${escapeHtml(option.text)}</span>
+            ${isAnswered && option.id === question.correctId ? '<span class="option-status" aria-label="Correct">✓</span>' : ''}
+            ${isAnswered && option.id === state.selectedId && option.id !== question.correctId ? '<span class="option-status" aria-label="Incorrect">×</span>' : ''}
           </button>`).join("")}
       </div>
       ${isAnswered ? renderFeedback(question, selectedOption, isCorrect) : `
         <div class="submit-row"><button class="secondary-btn" id="submit-btn" type="button" ${state.selectedId ? "" : "disabled"}>Submit Answer</button></div>`}
+    </section>
     </section>`;
 
   if (!isAnswered) {
@@ -247,19 +271,18 @@ function renderFeedback(question, selectedOption, isCorrect) {
   const selectedLetter = String.fromCharCode(65 + question.options.findIndex((option) => option.id === selectedOption.id));
   const correctLetter = String.fromCharCode(65 + question.options.findIndex((option) => option.id === correctOption.id));
   const answerDetails = isCorrect
-    ? `<p><strong>Explanation:</strong> ${escapeHtml(correctOption.explanation)}</p>`
-    : `<p><strong>Your answer:</strong> ${selectedLetter}. ${escapeHtml(selectedOption.text)}</p>
-       <p><strong>Correct answer:</strong> ${correctLetter}. ${escapeHtml(correctOption.text)}</p>
-       <p><strong>Why your answer is wrong:</strong> ${escapeHtml(selectedOption.explanation)}</p>
-       <p><strong>Why the correct answer is right:</strong> ${escapeHtml(correctOption.explanation)}</p>`;
+    ? ""
+    : `<div class="answer-line"><span>Your answer</span><strong class="answer-wrong">${selectedLetter}. ${escapeHtml(selectedOption.text)}</strong></div>
+       <div class="answer-line"><span>Correct answer</span><strong class="answer-right">${correctLetter}. ${escapeHtml(correctOption.text)}</strong></div>`;
 
   return `
     <div class="feedback ${isCorrect ? "correct" : "incorrect"}" aria-live="polite">
-      <div class="feedback-head">${isCorrect ? "✓ CORRECT" : "✕ INCORRECT"}</div>
-      ${answerDetails}
-      <div class="reference">Textbook reference: Chapter ${question.chapter} — Page${question.page.includes("–") ? "s" : ""} ${escapeHtml(question.page)}</div>
+      <div class="feedback-head"><span class="feedback-icon" aria-hidden="true">${isCorrect ? "✓" : "×"}</span><div><strong>${isCorrect ? "Correct!" : "Incorrect"}</strong><span>${isCorrect ? "Well done. You selected the correct answer." : "Review the distinction before moving on."}</span></div></div>
+      <div class="answer-review">${answerDetails}</div>
+      <div class="explanation-block"><h3>Explanation</h3>${isCorrect ? `<p>${escapeHtml(correctOption.explanation)}</p>` : `<p><strong>Why your answer is wrong:</strong> ${escapeHtml(selectedOption.explanation)}</p><p><strong>Why the correct answer is right:</strong> ${escapeHtml(correctOption.explanation)}</p>`}</div>
+      <div class="reference-panel"><span class="reference-icon" aria-hidden="true">▧</span><div><strong>Textbook reference</strong><span>Chapter ${question.chapter} — Page${question.page.includes("–") ? "s" : ""} ${escapeHtml(question.page)}</span></div></div>
     </div>
-    <div class="next-row"><button class="secondary-btn" id="next-btn" type="button">${state.current + 1 === state.quiz.length ? "See Results" : "Next Question"}</button></div>`;
+    <div class="next-row"><button class="secondary-btn" id="next-btn" type="button">${state.current + 1 === state.quiz.length ? "See Results" : "Next Question →"}</button></div>`;
 }
 
 function submitAnswer() {
@@ -309,19 +332,19 @@ function renderResults() {
   app.innerHTML = `
     <section class="card results-card">
       <div class="results-hero">
-        <div><p class="eyebrow">Practice session complete</p><h2>Quiz Complete</h2><p>You answered ${total} textbook-grounded question${total === 1 ? "" : "s"}.</p></div>
-        <div class="result-score"><strong>${percent}%</strong><span>${state.score} / ${total}</span></div>
+        <div class="results-copy"><p class="eyebrow">Practice session complete</p><h2>Quiz Complete</h2><p>You answered ${total} textbook-grounded question${total === 1 ? "" : "s"}.</p></div>
+        <div class="result-score"><span>You scored</span><strong>${state.score} / ${total}</strong><b>${percent}%</b></div>
       </div>
       <div class="stats-row">
-        <div class="stat"><strong>${state.score}</strong><br />Correct</div>
-        <div class="stat"><strong>${state.mistakes.length}</strong><br />Incorrect</div>
-        <div class="stat"><strong>${total}</strong><br />Questions</div>
+        <div class="stat stat-correct"><span aria-hidden="true">✓</span><strong>${state.score}</strong><small>Correct</small></div>
+        <div class="stat stat-incorrect"><span aria-hidden="true">×</span><strong>${state.mistakes.length}</strong><small>Incorrect</small></div>
+        <div class="stat"><span aria-hidden="true">#</span><strong>${total}</strong><small>Questions</small></div>
       </div>
-      <h3 class="wrong-title">Review incorrect questions</h3>
+      <div class="review-heading"><div><h3 class="wrong-title">Review incorrect questions</h3><p>${state.mistakes.length ? `You got ${state.mistakes.length} question${state.mistakes.length === 1 ? "" : "s"} incorrect. Use the explanations to strengthen your understanding.` : "Excellent work — every answer was correct."}</p></div></div>
       <div class="wrong-list">${wrongMarkup}</div>
       <div class="result-actions">
-        ${state.mistakes.length ? `<button class="secondary-btn" id="retry-btn" type="button">Retry Wrong Questions</button>` : ""}
-        <button class="ghost-btn" id="new-quiz-btn" type="button">Start New Quiz</button>
+        ${state.mistakes.length ? `<button class="primary-btn" id="retry-btn" type="button">Review Incorrect Questions <span aria-hidden="true">→</span></button>` : ""}
+        <button class="ghost-btn" id="new-quiz-btn" type="button">Take Another Quiz</button>
       </div>
     </section>`;
 
