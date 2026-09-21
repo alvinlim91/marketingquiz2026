@@ -1,5 +1,5 @@
-import { chapters, questionBank } from "/questions.js";
-import { resetQuestionHistory, selectBalancedQuestions, shuffle } from "/quizLogic.js";
+import { chapters, questionBank } from "./questions.js";
+import { resetQuestionHistory, selectBalancedQuestions, shuffle } from "./quizLogic.js";
 
 const app = document.querySelector("#app");
 const bankSummary = document.querySelector("#bank-summary");

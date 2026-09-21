@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+*.log
+
+# Local textbook/source material and visual references are not runtime assets.
+Marketing Text Book.pdf
+design-reference/
