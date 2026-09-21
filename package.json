@@ -1,0 +1,11 @@
+{
+  "name": "marketing-mcq-practice",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Textbook-grounded MCQ practice for The Modern Marketing Playbook",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test"
+  }
+}
