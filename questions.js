@@ -1352,7 +1352,7 @@ export const questionBank = [
     ["To replace customer research with internal enthusiasm.", "A credible vision is grounded in customer and market value, not enthusiasm alone."],
     ["To set the product's final price before its value is understood.", "Pricing is a separate decision that should reflect value and strategy."],
   ]),
-  q("ch08-q002", 8, "186–190", "Which statement best matches the chapter's definition of customer value?", 2, [
+  q("ch08-q002", 8, "186–190", "Which statement best matches the chapter's definition of customer value?", 3, [
     ["Value is the number of features in the product.", "Features may create benefits but do not equal value by themselves."],
     ["Value is whatever the company spent to make the product.", "Production cost is not the same as customer-perceived value."],
     ["Value is only the functional benefit minus the monetary price.", "The chapter includes more than functional and monetary considerations."],
