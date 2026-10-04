@@ -1394,6 +1394,48 @@ export const questionBank = [
     ["A platform can grow without understanding its users or ecosystem.", "Understanding users and ecosystem participants is central to platform value."],
     ["Digital products can create value by enabling participation, community, and an ecosystem around the core experience.", "Correct. The case connects product strategy with platform and community dynamics."],
   ]),
+  q("ch08-q009", 8, "193–194", "A company launches a technically impressive product, but customers cannot explain why they need it and early demand is weak. Which lesson from new-product development best applies?", 1, [
+    ["The company should add more features before speaking with customers.", "More features do not solve a weak understanding of the customer problem or the product's value."],
+    ["The failure may reflect poor understanding of customer needs and an absent ‘so what?’ value proposition.", "Correct. The chapter links many launch failures to weak market understanding and differences that do not matter enough to customers."],
+    ["The company should skip testing so competitors cannot learn about the idea.", "Protecting confidentiality can matter, but skipping customer learning increases the risk of failure."],
+    ["The product is successful because technical superiority automatically creates customer value.", "Technical performance does not automatically establish value in the customer's eyes."],
+  ]),
+  q("ch08-q010", 8, "194–196", "A shortlisted product idea is turned into a detailed concept and shown to target customers through a prototype so the team can refine its benefits and features. Which NPD stage is this?", 2, [
+    ["Idea generation", "Idea generation creates a broad pool of possibilities before one concept is developed in detail."],
+    ["Idea screening", "Screening filters ideas for fit, feasibility, profitability, sustainability, and strategic alignment."],
+    ["Concept development and testing", "Correct. This stage develops the concept and obtains customer feedback using prototypes, mockups, or MVPs."],
+    ["Commercialization", "Commercialization is the market launch after development and the necessary decisions have been completed."],
+  ]),
+  q("ch08-q011", 8, "197–198", "A streaming service uses viewing behavior and real-time context to personalize recommendations, then uses the resulting data to improve the experience again. What connected-world product practice is illustrated?", 0, [
+    ["A data-driven product with a continuous learning and improvement cycle.", "Correct. The chapter describes behavioral data, AI, and real-time analytics feeding personalization and further product improvement."],
+    ["A closed ecosystem that prevents users from choosing another service.", "The scenario focuses on data-enabled personalization, not vendor lock-in or restricted interoperability."],
+    ["A line extension within an existing product category.", "A line extension adds product variants; it does not describe this data feedback loop."],
+    ["A one-time product launch with no post-purchase learning.", "The scenario is explicitly continuous and data-informed after launch."],
+  ]),
+  q("ch08-q012", 8, "198–199", "A smart-home brand designs its devices to work only with its own app and accessories, so customers feel compelled to stay with the brand. What risk does this illustrate?", 3, [
+    ["Trialability", "Trialability concerns how easily customers can test a product before adoption."],
+    ["Product-as-a-Service", "Product-as-a-Service is a subscription model based on access and ongoing services."],
+    ["Co-creation", "Co-creation involves customers helping to develop or refine products."],
+    ["Vendor lock-in caused by a closed ecosystem.", "Correct. Closed ecosystems can restrict interoperability and make users feel compelled to remain with one brand."],
+  ]),
+  q("ch08-q013", 8, "200", "An online retailer lets shoppers virtually try on clothing before ordering. Which connected-world trend is the retailer using to enhance discovery and engagement?", 1, [
+    ["Fractional ownership", "Fractional ownership provides access without full ownership; it does not describe virtual try-on."],
+    ["An immersive experience using AR or VR.", "Correct. The chapter describes virtual try-on and 360-degree tours as immersive experiences that personalize discovery."],
+    ["Portfolio pruning", "Portfolio pruning removes weak or overlapping products; it is not an experience technology."],
+    ["Objective-and-task budgeting", "Objective-and-task is a promotion-budget method, not a product-experience trend."],
+  ]),
+  q("ch08-q014", 8, "203–204", "Instead of selling a printer once, a firm charges a subscription that includes the printer, maintenance, software updates, and support. What product model is this?", 2, [
+    ["Market penetration", "Market penetration is an Ansoff growth strategy involving existing products in existing markets."],
+    ["A basic product with no augmented benefits", "Maintenance, updates, and support are augmented or ongoing benefits, not an absence of them."],
+    ["Product-as-a-Service", "Correct. Product-as-a-Service sells access to product benefits and continuing services through a subscription."],
+    ["A test market", "A test market is a limited launch used to estimate response before wider commercialization."],
+  ]),
+  q("ch08-q015", 8, "205–207", "Mediacorp and Wattpad use reader comments, shares, search trends, and existing fan communities to choose stories and reach similar viewers. What does this most directly demonstrate?", 3, [
+    ["Creative decisions should rely only on executive intuition.", "The case explicitly combines editorial judgment with audience data rather than relying only on intuition."],
+    ["A platform should keep its content inside its original audience.", "The collaboration uses lookalike audiences and partner networks to expand reach."],
+    ["User-generated content makes partnerships unnecessary.", "The case shows how partnership and user-generated content work together to create value and reach."],
+    ["Audience data, user-generated content, and partnerships can support product development and targeted expansion.", "Correct. These are the central product-strategy lessons of the Wattpad–Mediacorp case."],
+  ]),
 
   // Chapter 9
   q("ch09-q001", 9, "209–210", "Which sequence represents the product life cycle used in Chapter 9?", 1, [
@@ -1443,6 +1485,48 @@ export const questionBank = [
     ["Removing weak or overlapping offers can free resources and reduce cannibalization or complexity.", "Correct. The chapter discusses pruning, resource focus, and the risks of products competing with one another."],
     ["Pruning is required whenever a product reaches growth.", "Pruning is a strategic choice, not an automatic response to the growth stage."],
     ["A portfolio should contain only one product to be coherent.", "A coherent portfolio can still contain multiple well-managed offerings."],
+  ]),
+  q("ch09-q009", 9, "210–213", "A new product has just launched. The team is educating customers about its benefits, building awareness, and trying to generate initial sales while keeping the initial offer focused. Which PLC stage is this?", 0, [
+    ["Introduction", "Correct. The introduction stage focuses on awareness, education, initial sales, and establishing a foothold."],
+    ["Growth", "Growth follows acceptance and emphasizes scaling, competition, and loyalty."],
+    ["Maturity", "Maturity involves peak or stable sales, efficiency, retention, and defending relevance."],
+    ["Decline", "Decline involves falling relevance or sales and decisions about profitability, revitalization, or exit."],
+  ]),
+  q("ch09-q010", 9, "211–213", "A startup chooses innovators who are influential among other potential adopters and offers them an easy-to-understand product trial. Why is this a sensible introduction-stage tactic?", 2, [
+    ["Innovators are the only customers who matter throughout the entire PLC.", "Innovators are especially relevant at introduction, but later stages require broader market and customer strategies."],
+    ["Trialability eliminates the need to communicate a value proposition.", "A trial can reduce uncertainty, but customers still need to understand the product's value."],
+    ["Influential innovators can accelerate diffusion through trial, word of mouth, and social pressure.", "Correct. The chapter links early adopters' influence and product characteristics such as trialability to faster diffusion."],
+    ["The company should avoid distribution until the product reaches maturity.", "Making the product available through suitable channels is important during introduction."],
+  ]),
+  q("ch09-q011", 9, "216–218", "A product is in the growth stage, but competitors are copying it and customers are becoming more demanding. Which response best fits the textbook?", 3, [
+    ["Stop improving the product because the first launch has already succeeded.", "Growth increases the need for continued differentiation and adaptation, not complacency."],
+    ["Focus only on cutting marketing expenditure and harvesting profit.", "Harvesting is more associated with managing decline; growth requires scaling and defending the position."],
+    ["Target only the original niche and avoid broader distribution.", "Growth often requires expanding production, distribution, and appeal to additional segments."],
+    ["Scale availability while strengthening differentiation, product variants, loyalty, and customer relationships.", "Correct. These actions address growth-stage demand, competition, and the need to build lasting loyalty."],
+  ]),
+  q("ch09-q012", 9, "218–219", "A mature brand has stable sales and strong competition. It introduces complementary bundles, loyalty benefits, and incremental product improvements. What is the main objective?", 1, [
+    ["To behave as though the product is still in the introduction stage.", "The actions are not primarily about first awareness or educating an unfamiliar market."],
+    ["To defend market share, retain customers, improve efficiency, and maintain relevance.", "Correct. These are central maturity-stage priorities in the chapter."],
+    ["To discontinue the product immediately because mature products cannot grow.", "Mature products can be revitalized, extended, or used to generate further value."],
+    ["To replace the existing customer base with innovators only.", "Maturity strategy usually deepens retention and may identify new segments without abandoning existing customers."],
+  ]),
+  q("ch09-q013", 9, "219–221", "Sales are declining for a once-popular product, but a cultural trend suggests a younger audience may value a redesigned version. Which response is most consistent with the chapter?", 0, [
+    ["Explore revitalization through product innovation or a new target segment before automatically exiting.", "Correct. The decline stage can involve cost control, but the chapter also describes innovation and new segments as revitalization options."],
+    ["Increase every type of marketing spending without checking profitability.", "Decline requires disciplined resource allocation and does not justify indiscriminate spending."],
+    ["Assume decline means the product can never regain relevance.", "The chapter gives examples of brands that regained relevance through revitalization."],
+    ["Move directly to market development without changing the offer or understanding the new segment.", "New segments still require a relevant value proposition and customer understanding."],
+  ]),
+  q("ch09-q014", 9, "226–228", "A beverage company sells its existing drink in a new country and later considers launching a new snack product for that country. Which Ansoff strategies describe these moves?", 2, [
+    ["Product development followed by market penetration", "The first move uses an existing product in a new market, so it is not product development."],
+    ["Market penetration followed by product development", "Market penetration keeps both the product and market existing; the first move enters a new country."],
+    ["Market development followed by diversification", "Correct. The first move takes an existing product to a new market; the second combines a new product with a new market."],
+    ["Diversification followed by market development", "The first move does not introduce a new product, so it is not diversification."],
+  ]),
+  q("ch09-q015", 9, "229–232", "Omega and Swatch combine Omega’s heritage and Swatch’s affordability in a new limited-edition watch that attracts younger buyers. What is the strongest lesson from this collaboration?", 3, [
+    ["Co-branding works only when both brands have identical positioning.", "The case draws power from complementary strengths, not identical positioning."],
+    ["A collaboration should simply repackage one partner’s existing product.", "The case emphasizes creating something new and exciting rather than a simple rehash."],
+    ["Luxury brands should avoid collaborations because accessibility always weakens equity.", "The case illustrates how a carefully designed collaboration can refresh and strengthen both brands."],
+    ["Complementary brands can use co-branding to reach new segments, create excitement, and revitalize brand perceptions.", "Correct. These are the main strategic lessons highlighted by the MoonSwatch case."],
   ]),
 
   // Chapter 10
@@ -1593,6 +1677,48 @@ export const questionBank = [
     ["It avoided emotion so that the message could remain purely factual.", "Storytelling and emotion are central to the example."],
     ["It treated community members as interchangeable media impressions.", "The campaign gave attention to people and their roles rather than reducing them to impressions."],
     ["It used relatable human storytelling to connect the brand with everyday community value.", "Correct. The case illustrates narrative, relevance, and human connection in promotion."],
+  ]),
+  q("ch12-q009", 12, "317–319", "A brand’s slogan is clear to its marketing team but is interpreted differently by customers because of cultural references and competing messages in the media environment. Which communication concepts best explain the problem?", 2, [
+    ["Budgeting and market development", "These are planning and growth concepts, not parts of the communication model."],
+    ["Purchase and post-purchase evaluation", "These are decision stages, not the source of the communication problem described."],
+    ["Decoding differences and noise", "Correct. Receivers interpret messages through their own experience and culture, while noise can interfere with clarity."],
+    ["Product development and commercialization", "These are product-management stages, not communication-model elements."],
+  ]),
+  q("ch12-q010", 12, "320–322", "Research shows that customers know a brand exists and like it, but they do not yet favor it over competitors. Which communication objective should the marketer prioritize next?", 1, [
+    ["Awareness, because the audience has never encountered the brand.", "The audience is already aware of the brand, so awareness is not the immediate gap."],
+    ["Preference, by highlighting the brand’s distinctive value and advantage over competitors.", "Correct. In the hierarchy of effects, preference follows liking and involves favoring the brand over alternatives."],
+    ["Purchase, without addressing why the brand should be chosen.", "A clear call to action can help, but the stated gap is comparative preference."],
+    ["Noise, because preference is not a communication objective.", "Noise is interference in communication; preference is a stage in the hierarchy of effects."],
+  ]),
+  q("ch12-q011", 12, "323–324", "A prospect understands the problem, is comparing solutions, and downloads a detailed case study and attends a webinar before requesting a sales call. Which funnel stage and content fit best?", 0, [
+    ["MOFU evaluation, supported by educational resources, case studies, or webinars.", "Correct. The middle of the funnel helps problem-aware prospects evaluate solutions and move toward becoming leads."],
+    ["TOFU awareness, supported only by broad reach advertising.", "The prospect is beyond initial awareness and is actively evaluating alternatives."],
+    ["BOFU conversion, where no further information is needed.", "The prospect is moving toward conversion but is still evaluating; the described content fits MOFU."],
+    ["Post-purchase loyalty, because a sales call has already occurred.", "Requesting a sales call is not the same as completing a purchase or entering post-purchase loyalty."],
+  ]),
+  q("ch12-q012", 12, "325–326", "A small firm sets its promotion budget mainly by matching the spending of its largest competitor, even though the competitor’s objectives and customer mix differ. Which method is it using, and what is the concern?", 3, [
+    ["What-you-can-afford budgeting; it guarantees the right level of spending.", "The scenario describes matching a competitor, not simply allocating available funds."],
+    ["Percentage-of-sales budgeting; it is always more strategic than other methods.", "Percentage-of-sales uses past or projected sales, not competitor spending."],
+    ["Objective-and-task budgeting; it starts by costing the actions required.", "Objective-and-task begins with goals and tasks rather than copying a competitor's budget."],
+    ["Competitive-parity budgeting; it may overspend because it follows a competitor instead of the firm’s own objectives and customers.", "Correct. The chapter notes that competitive parity can shift attention from customer needs to keeping pace with rivals."],
+  ]),
+  q("ch12-q013", 12, "327–328", "An agency is asked to create campaign visuals, but the brand marketer first supplies the brand voice, value proposition, target-audience insight, and brand guidelines. Why is this division of work appropriate?", 1, [
+    ["The agency should define the brand’s strategy because it owns the customer relationship.", "The chapter assigns strategic brand and audience knowledge primarily to the brand marketer."],
+    ["The brand marketer owns strategic brand knowledge while the agency translates it into creative execution and media recommendations.", "Correct. The chapter presents brand marketers and agencies as complementary partners with distinct strengths."],
+    ["The agency should ignore brand guidelines to maximize creative freedom.", "Creative execution still needs to align with brand identity and values."],
+    ["The brand marketer’s role ends once the agency receives the brief.", "The chapter stresses continued guidance, expectations, feedback, and responsibility for results."],
+  ]),
+  q("ch12-q014", 12, "329", "A campaign tests well in one country but receives negative reactions when launched in another because the cultural interpretation differs. What should the marketer conclude?", 0, [
+    ["Pretesting is market-specific; the campaign should be evaluated and adapted rather than assumed to transfer unchanged.", "Correct. The chapter warns that perception differs across markets and that one market’s pretest cannot guarantee another market’s success."],
+    ["The negative reaction proves that all pretesting is useless.", "Pretesting remains useful; it simply cannot eliminate the need for local judgment and evaluation."],
+    ["The brand should ignore the reaction if the media cost has already been paid.", "Continuing a damaging message can harm the brand; corrective action is part of evaluation."],
+    ["A campaign that works in one market should always be standardized globally.", "The chapter emphasizes that different audiences and markets may interpret messages differently."],
+  ]),
+  q("ch12-q015", 12, "329–331", "Gojek’s campaign features real people helping their communities, invites viewers to share their own stories, and uses social media to build participation. Which combination best describes the approach?", 2, [
+    ["A purely product-feature advertisement with no audience role.", "The campaign emphasizes human stories, emotion, community, and participation rather than features alone."],
+    ["A competitive-parity budget with a one-way broadcast message.", "The case is not defined by competitor-based budgeting or one-way communication."],
+    ["Storytelling and emotional connection combined with community participation and user-generated content.", "Correct. These are the key lessons the chapter draws from the Everyday Heroes case."],
+    ["A bottom-of-funnel discount campaign designed only to remove checkout friction.", "The campaign's main value is community meaning and emotional connection, not a conversion discount."],
   ]),
 
   // Chapter 13

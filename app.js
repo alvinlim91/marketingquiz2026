@@ -4,6 +4,7 @@ import { resetQuestionHistory, selectBalancedQuestions, shuffle } from "./quizLo
 const app = document.querySelector("#app");
 const bankSummary = document.querySelector("#bank-summary");
 const HISTORY_KEY = "marketing-mcq-history-v2";
+const ACTIVE_QUIZ_KEY = "marketing-mcq-active-v1";
 
 const state = {
   view: "home",
@@ -68,6 +69,86 @@ function writeHistory(history) {
     localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
   } catch {
     // Quota or privacy-mode failures should not prevent quiz practice.
+  }
+}
+
+function writeActiveQuiz() {
+  if (state.view !== "quiz" || !state.quiz.length) return;
+  try {
+    localStorage.setItem(ACTIVE_QUIZ_KEY, JSON.stringify({
+      version: 1,
+      view: state.view,
+      selectedChapters: state.selectedChapters,
+      countMode: state.countMode,
+      customCount: state.customCount,
+      quiz: state.quiz,
+      current: state.current,
+      score: state.score,
+      answeredCount: state.answeredCount,
+      selectedId: state.selectedId,
+      submitted: state.submitted,
+      mistakes: state.mistakes,
+    }));
+  } catch {
+    // Quota or privacy-mode failures should not prevent quiz practice.
+  }
+}
+
+function clearActiveQuiz() {
+  try {
+    localStorage.removeItem(ACTIVE_QUIZ_KEY);
+  } catch {
+    // Privacy-mode failures should not prevent starting a new quiz.
+  }
+}
+
+function isValidSavedQuestion(question) {
+  return question
+    && typeof question.id === "string"
+    && Array.isArray(question.options)
+    && question.options.length === 4
+    && question.options.every((option) => option && typeof option.id === "string" && typeof option.text === "string")
+    && typeof question.correctId === "string";
+}
+
+function restoreActiveQuiz() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(ACTIVE_QUIZ_KEY) || "null");
+    if (!stored
+      || stored.version !== 1
+      || stored.view !== "quiz"
+      || !Array.isArray(stored.quiz)
+      || !stored.quiz.length
+      || !stored.quiz.every(isValidSavedQuestion)
+      || !Number.isInteger(stored.current)
+      || stored.current < 0
+      || stored.current >= stored.quiz.length
+      || !Number.isInteger(stored.score)
+      || !Number.isInteger(stored.answeredCount)
+      || stored.answeredCount < 0
+      || stored.answeredCount > stored.quiz.length
+      || (stored.selectedId !== null && typeof stored.selectedId !== "string")
+      || typeof stored.submitted !== "boolean"
+      || !Array.isArray(stored.mistakes)) {
+      if (stored) clearActiveQuiz();
+      return false;
+    }
+
+    state.view = "quiz";
+    state.selectedChapters = Array.isArray(stored.selectedChapters) ? stored.selectedChapters : state.selectedChapters;
+    state.countMode = stored.countMode ?? state.countMode;
+    state.customCount = Number(stored.customCount) || state.customCount;
+    state.quiz = stored.quiz;
+    state.current = stored.current;
+    state.score = stored.score;
+    state.answeredCount = stored.answeredCount;
+    state.selectedId = stored.selectedId;
+    state.submitted = stored.submitted;
+    state.mistakes = stored.mistakes;
+    return true;
+  } catch {
+    clearActiveQuiz();
+    return false;
   }
 }
 
@@ -145,7 +226,7 @@ function renderHome() {
         <ul class="study-promises">
           <li><span aria-hidden="true">✓</span> Four options per question</li>
           <li><span aria-hidden="true">✓</span> Printed textbook references</li>
-          <li><span aria-hidden="true">✓</span> Progress saved locally</li>
+          <li><span aria-hidden="true">✓</span> Quiz progress saved locally</li>
         </ul>
         <button class="ghost-btn reset-history-btn" id="reset-history-btn" type="button">Reset question history</button>
       </aside>
@@ -233,7 +314,7 @@ function renderQuiz() {
     <section class="quiz-layout">
       <div class="quiz-top">
         <div class="quiz-progress-copy"><p class="quiz-label">Question ${state.current + 1} of ${state.quiz.length}</p><span>${progressLabel}% complete</span></div>
-        <div class="score-pill" aria-live="polite">Score: ${state.score} / ${state.answeredCount}</div>
+        <div class="quiz-top-actions"><div class="score-pill" aria-live="polite">Score: ${state.score} / ${state.answeredCount}</div><button class="ghost-btn exit-quiz-btn" id="exit-quiz-btn" type="button">Exit &amp; discard</button></div>
       </div>
       <div class="progress-track" aria-label="Quiz progress"><div class="progress-fill" style="width: ${progress}%"></div></div>
     <section class="card question-card" aria-label="Question">
@@ -257,6 +338,7 @@ function renderQuiz() {
     document.querySelectorAll("[data-option]").forEach((button) => {
       button.addEventListener("click", () => {
         state.selectedId = button.dataset.option;
+        writeActiveQuiz();
         renderQuiz();
       });
     });
@@ -264,6 +346,7 @@ function renderQuiz() {
   } else {
     document.querySelector("#next-btn").addEventListener("click", nextQuestion);
   }
+  document.querySelector("#exit-quiz-btn").addEventListener("click", exitQuiz);
 }
 
 function renderFeedback(question, selectedOption, isCorrect) {
@@ -294,11 +377,13 @@ function submitAnswer() {
   state.answeredCount += 1;
   if (isCorrect) state.score += 1;
   else state.mistakes.push({ question, selectedId: state.selectedId });
+  writeActiveQuiz();
   renderQuiz();
 }
 
 function nextQuestion() {
   if (state.current + 1 >= state.quiz.length) {
+    clearActiveQuiz();
     state.view = "results";
     render();
     return;
@@ -306,7 +391,21 @@ function nextQuestion() {
   state.current += 1;
   state.selectedId = null;
   state.submitted = false;
+  writeActiveQuiz();
   renderQuiz();
+}
+
+function exitQuiz() {
+  clearActiveQuiz();
+  state.view = "home";
+  state.quiz = [];
+  state.current = 0;
+  state.score = 0;
+  state.answeredCount = 0;
+  state.selectedId = null;
+  state.submitted = false;
+  state.mistakes = [];
+  render();
 }
 
 function renderResults() {
@@ -349,6 +448,7 @@ function renderResults() {
     </section>`;
 
   document.querySelector("#new-quiz-btn").addEventListener("click", () => {
+    clearActiveQuiz();
     state.view = "home";
     state.selectedId = null;
     render();
@@ -366,7 +466,9 @@ function retryWrong() {
   state.submitted = false;
   state.mistakes = [];
   state.view = "quiz";
+  writeActiveQuiz();
   render();
 }
 
+restoreActiveQuiz();
 render();
