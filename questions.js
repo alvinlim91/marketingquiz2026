@@ -4085,4 +4085,50 @@ export const questionBank = [
   ]),
 ];
 
-export const midtermCaseStudyBank = questionBank.filter((question) => question.caseStudy === true);
+const caseIds = (chapter, numbers) => numbers.map((number) => `ch${String(chapter).padStart(2, "0")}-case-q${String(number).padStart(3, "0")}`);
+
+// Difficulty is based on reasoning demand, not wording length:
+// easy = one clear application, normal = interpretation plus comparison,
+// hard = trade-offs, multiple concepts, or highly plausible distractors.
+const difficultySets = {
+  easy: [
+    ...caseIds(1, [6, 8, 9, 16, 20, 26, 33]),
+    ...caseIds(2, [1, 2, 4, 12, 23, 24]),
+    ...caseIds(3, [3, 8, 10, 12, 14, 15]),
+    ...caseIds(4, [1, 2, 7, 8, 12, 20]),
+    ...caseIds(6, [2, 3, 6, 11, 17]),
+    ...caseIds(8, [6, 8, 9, 10, 12]),
+    ...caseIds(9, [1, 12, 14, 15, 16]),
+    ...caseIds(12, [1, 5, 8, 11, 30]),
+  ],
+  normal: [
+    ...caseIds(1, [1, 2, 3, 4, 5, 7, 10, 13, 14, 17, 18, 19, 21, 23, 24, 25, 27, 28, 31, 32, 35, 36, 38]),
+    ...caseIds(2, [5, 6, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 25, 26, 27, 28, 31, 32, 33, 34, 35, 36, 37]),
+    ...caseIds(3, [1, 2, 6, 13, 16, 18, 19, 20, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]),
+    ...caseIds(4, [6, 9, 11, 15, 16, 17, 18, 19, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38]),
+    ...caseIds(6, [4, 8, 10, 12, 14, 16, 19, 22, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37]),
+    ...caseIds(8, [3, 4, 11, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 31, 33, 34, 35, 36, 37]),
+    ...caseIds(9, [5, 6, 8, 13, 18, 19, 20, 21, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35, 36, 37]),
+    ...caseIds(12, [6, 9, 10, 15, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29, 31, 32, 33, 34, 36, 37]),
+  ],
+  hard: [
+    ...caseIds(1, [11, 12, 15, 22, 29, 30, 34, 37]),
+    ...caseIds(2, [3, 7, 19, 20, 21, 22, 29, 30, 38]),
+    ...caseIds(3, [4, 5, 7, 9, 11, 17, 21, 22, 23]),
+    ...caseIds(4, [3, 4, 5, 10, 13, 14, 21, 22, 37]),
+    ...caseIds(6, [1, 5, 7, 9, 13, 15, 18, 20, 21, 24]),
+    ...caseIds(8, [1, 2, 5, 7, 13, 15, 19, 23, 29, 32]),
+    ...caseIds(9, [2, 3, 4, 7, 9, 10, 11, 17, 22, 32]),
+    ...caseIds(12, [2, 3, 4, 7, 12, 13, 14, 20, 21, 35]),
+  ],
+};
+
+const difficultyByCaseId = new Map(Object.entries(difficultySets).flatMap(([difficulty, ids]) => ids.map((id) => [id, difficulty])));
+const caseStudyQuestions = questionBank.filter((question) => question.caseStudy === true);
+if (caseStudyQuestions.length !== 300 || difficultyByCaseId.size !== caseStudyQuestions.length || caseStudyQuestions.some((question) => !difficultyByCaseId.has(question.id))) {
+  throw new Error("Every midterm case-study question must have exactly one difficulty tag.");
+}
+
+for (const question of caseStudyQuestions) question.difficulty = difficultyByCaseId.get(question.id);
+
+export const midtermCaseStudyBank = caseStudyQuestions;

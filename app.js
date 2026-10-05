@@ -320,11 +320,13 @@ function startQuiz() {
     renderHome();
     return;
   }
+  const activeQuestionBank = getActiveQuestionBank();
   const selection = selectBalancedQuestions({
-    questionBank,
+    questionBank: activeQuestionBank,
     selectedChapters: state.selectedChapters,
     count,
     history: readHistory(),
+    difficultyMix: state.practiceMode === "midterm-special" ? { easy: 0.15, normal: 0.60, hard: 0.25 } : null,
   });
   writeHistory(selection.history);
   state.quiz = selection.questions.map(prepareQuestion);

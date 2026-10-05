@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { midtermCaseStudyBank } from "../questions.js";
-import { calculateBalancedAllocation, resetQuestionHistory, selectBalancedQuestions } from "../quizLogic.js";
+import { calculateBalancedAllocation, calculateDifficultyAllocation, resetQuestionHistory, selectBalancedQuestions } from "../quizLogic.js";
 
 const allChapters = Array.from({ length: 15 }, (_, index) => index + 1);
 
@@ -29,9 +29,35 @@ test("midterm special bank contains 300 application-focused case-study questions
   assert.ok(midtermCaseStudyBank.every((question) => question.options.length === 4));
   assert.ok(midtermCaseStudyBank.every((question) => !/which chapter concept|which chapter does/i.test(question.prompt)));
   assert.deepEqual(
+    Object.fromEntries(["easy", "normal", "hard"].map((difficulty) => [difficulty, midtermCaseStudyBank.filter((question) => question.difficulty === difficulty).length])),
+    { easy: 45, normal: 180, hard: 75 },
+  );
+  assert.deepEqual(
     Object.fromEntries(midtermChapters.map((chapter) => [chapter, midtermCaseStudyBank.filter((question) => question.chapter === chapter).length])),
     Object.fromEntries([1, 2, 3, 4].map((chapter) => [chapter, 38]).concat([6, 8, 9, 12].map((chapter) => [chapter, 37]))),
   );
+});
+
+test("difficulty-aware selection targets the 15/60/25 midterm mix", () => {
+  const result = selectBalancedQuestions({
+    questionBank: midtermCaseStudyBank,
+    selectedChapters: [1, 2, 3, 4, 6, 8, 9, 12],
+    count: 30,
+    difficultyMix: { easy: 0.15, normal: 0.6, hard: 0.25 },
+    random: () => 0.37,
+  });
+  assert.deepEqual(result.difficultyAllocation, { easy: 5, normal: 18, hard: 7 });
+  assert.equal(result.questions.length, 30);
+  assert.equal(new Set(result.questions.map((question) => question.id)).size, 30);
+  assert.deepEqual(
+    Object.fromEntries(["easy", "normal", "hard"].map((difficulty) => [difficulty, result.questions.filter((question) => question.difficulty === difficulty).length])),
+    { easy: 5, normal: 18, hard: 7 },
+  );
+  assert.deepEqual(Object.values(result.allocation).sort((a, b) => a - b), [3, 3, 4, 4, 4, 4, 4, 4]);
+});
+
+test("difficulty allocation rounds short quizzes to an exact count", () => {
+  assert.deepEqual(calculateDifficultyAllocation(10, { easy: 0.15, normal: 0.6, hard: 0.25 }), { easy: 2, normal: 6, hard: 2 });
 });
 
 test("30 questions across all 15 chapters gives exactly 2 per chapter", () => {

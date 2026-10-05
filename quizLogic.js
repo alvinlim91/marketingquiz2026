@@ -24,6 +24,100 @@ function capacityFor(chapter, capacities) {
   return value === undefined ? Number.POSITIVE_INFINITY : Number(value);
 }
 
+const DIFFICULTIES = ["easy", "normal", "hard"];
+
+function chooseHighest(candidates, score, random) {
+  return shuffle(candidates, random).sort((left, right) => score(right) - score(left))[0];
+}
+
+function difficultyCapacityFor(difficulty, capacities) {
+  if (!capacities) return Number.POSITIVE_INFINITY;
+  const value = capacities[difficulty];
+  return value === undefined ? Number.POSITIVE_INFINITY : Number(value);
+}
+
+/**
+ * Allocate an exact question count across difficulty levels using weighted
+ * targets, while respecting optional per-level capacities.
+ */
+export function calculateDifficultyAllocation(questionCount, difficultyMix, capacities, random = Math.random) {
+  const requested = Number(questionCount);
+  if (!Number.isInteger(requested) || requested < 1) throw new Error("Question count must be a positive integer.");
+  const weights = Object.fromEntries(DIFFICULTIES.map((difficulty) => [difficulty, Number(difficultyMix?.[difficulty] ?? 0)]));
+  const weightTotal = Object.values(weights).reduce((sum, value) => sum + value, 0);
+  if (weightTotal <= 0 || Object.values(weights).some((value) => value < 0)) throw new Error("Difficulty weights must contain at least one non-negative value.");
+  const totalCapacity = DIFFICULTIES.reduce((sum, difficulty) => sum + difficultyCapacityFor(difficulty, capacities), 0);
+  if (requested > totalCapacity) throw new Error(`Only ${totalCapacity} unique questions are available across the difficulty levels.`);
+
+  const raw = Object.fromEntries(DIFFICULTIES.map((difficulty) => [difficulty, requested * weights[difficulty] / weightTotal]));
+  const allocation = Object.fromEntries(DIFFICULTIES.map((difficulty) => [difficulty, Math.min(Math.floor(raw[difficulty]), difficultyCapacityFor(difficulty, capacities))]));
+  let remaining = requested - Object.values(allocation).reduce((sum, value) => sum + value, 0);
+  while (remaining > 0) {
+    const candidates = DIFFICULTIES.filter((difficulty) => allocation[difficulty] < difficultyCapacityFor(difficulty, capacities));
+    if (!candidates.length) throw new Error("The difficulty levels cannot satisfy this question count.");
+    const difficulty = [...candidates].sort((left, right) => {
+      const scoreDifference = (raw[right] - allocation[right]) - (raw[left] - allocation[left]);
+      return scoreDifference || DIFFICULTIES.indexOf(left) - DIFFICULTIES.indexOf(right);
+    })[0];
+    allocation[difficulty] += 1;
+    remaining -= 1;
+  }
+  return allocation;
+}
+
+function allocateDifficultyMatrix(chapterAllocation, difficultyAllocation, pools, random) {
+  const chapters = Object.keys(chapterAllocation).map(Number);
+  const total = chapters.reduce((sum, chapter) => sum + chapterAllocation[chapter], 0);
+  const matrix = {};
+  const capacities = {};
+  const columnTotals = Object.fromEntries(DIFFICULTIES.map((difficulty) => [difficulty, 0]));
+
+  for (const chapter of chapters) {
+    const pool = pools.get(chapter) ?? [];
+    capacities[chapter] = Object.fromEntries(DIFFICULTIES.map((difficulty) => [difficulty, pool.filter((question) => question.difficulty === difficulty).length]));
+    matrix[chapter] = Object.fromEntries(DIFFICULTIES.map((difficulty) => [difficulty, 0]));
+    let remaining = chapterAllocation[chapter];
+
+    for (const difficulty of DIFFICULTIES) {
+      const desired = Math.floor(chapterAllocation[chapter] * difficultyAllocation[difficulty] / total);
+      const amount = Math.min(desired, capacities[chapter][difficulty]);
+      matrix[chapter][difficulty] = amount;
+      columnTotals[difficulty] += amount;
+      remaining -= amount;
+    }
+
+    while (remaining > 0) {
+      const candidates = DIFFICULTIES.filter((difficulty) => matrix[chapter][difficulty] < capacities[chapter][difficulty]);
+      if (!candidates.length) throw new Error(`Chapter ${chapter} cannot satisfy its difficulty allocation.`);
+      const difficulty = chooseHighest(candidates, (candidate) => difficultyAllocation[candidate] - columnTotals[candidate], random);
+      matrix[chapter][difficulty] += 1;
+      columnTotals[difficulty] += 1;
+      remaining -= 1;
+    }
+  }
+
+  // Repair column totals after row allocation while keeping every chapter's
+  // balanced quota intact. If a selected subset cannot meet the ideal mix,
+  // the closest capacity-constrained mix is returned instead of failing.
+  while (true) {
+    const over = DIFFICULTIES.find((difficulty) => columnTotals[difficulty] > difficultyAllocation[difficulty]);
+    const under = DIFFICULTIES.find((difficulty) => columnTotals[difficulty] < difficultyAllocation[difficulty]);
+    if (!over || !under) break;
+    const candidates = chapters.filter((chapter) => (
+      matrix[chapter][over] > 0
+      && matrix[chapter][under] < capacities[chapter][under]
+    ));
+    if (!candidates.length) break;
+    const chapter = chooseHighest(candidates, (candidate) => capacities[candidate][under] - matrix[candidate][under], random);
+    matrix[chapter][over] -= 1;
+    matrix[chapter][under] += 1;
+    columnTotals[over] -= 1;
+    columnTotals[under] += 1;
+  }
+
+  return { matrix, allocation: columnTotals };
+}
+
 /**
  * Allocate an exact number of questions across chapters.
  *
@@ -103,25 +197,47 @@ function pickChapterQuestions(pool, needed, historyIds, random) {
  * Select a quiz with balanced chapters, unseen-question preference, and no
  * duplicate question IDs inside one quiz. History is returned for persistence.
  */
-export function selectBalancedQuestions({ questionBank, selectedChapters, count, history = {}, random = Math.random }) {
+export function selectBalancedQuestions({ questionBank, selectedChapters, count, history = {}, random = Math.random, difficultyMix = null }) {
   const chapters = [...new Set(selectedChapters.map(asChapterNumber))];
   const pools = new Map(chapters.map((chapter) => [chapter, questionBank.filter((question) => Number(question.chapter) === chapter)]));
   const capacities = Object.fromEntries(chapters.map((chapter) => [chapter, pools.get(chapter).length]));
   const allocation = calculateBalancedAllocation(chapters, count, capacities, random);
+  let difficultyMatrix = null;
+  let difficultyAllocation = null;
+  if (difficultyMix) {
+    const difficultyCapacities = Object.fromEntries(DIFFICULTIES.map((difficulty) => [
+      difficulty,
+      chapters.reduce((total, chapter) => total + (pools.get(chapter) ?? []).filter((question) => question.difficulty === difficulty).length, 0),
+    ]));
+    const targetDifficultyAllocation = calculateDifficultyAllocation(count, difficultyMix, difficultyCapacities, random);
+    const matrixResult = allocateDifficultyMatrix(allocation, targetDifficultyAllocation, pools, random);
+    difficultyMatrix = matrixResult.matrix;
+    difficultyAllocation = matrixResult.allocation;
+  }
   const nextHistory = cloneHistory(history);
   const selected = [];
 
   for (const [chapterText, needed] of Object.entries(allocation)) {
     const chapter = Number(chapterText);
     const pool = pools.get(chapter) ?? [];
-    const chosen = pickChapterQuestions(pool, needed, nextHistory[chapter] ?? [], random);
-    nextHistory[chapter] = [...new Set([...(nextHistory[chapter] ?? []), ...chosen.map((question) => question.id)])];
-    selected.push(...chosen);
+    if (!difficultyMatrix) {
+      const chosen = pickChapterQuestions(pool, needed, nextHistory[chapter] ?? [], random);
+      nextHistory[chapter] = [...new Set([...(nextHistory[chapter] ?? []), ...chosen.map((question) => question.id)])];
+      selected.push(...chosen);
+      continue;
+    }
+    for (const difficulty of DIFFICULTIES) {
+      const difficultyPool = pool.filter((question) => question.difficulty === difficulty);
+      const chosen = pickChapterQuestions(difficultyPool, difficultyMatrix[chapter][difficulty], nextHistory[chapter] ?? [], random);
+      nextHistory[chapter] = [...new Set([...(nextHistory[chapter] ?? []), ...chosen.map((question) => question.id)])];
+      selected.push(...chosen);
+    }
   }
 
   return {
     questions: shuffle(selected, random),
     allocation,
+    difficultyAllocation,
     history: nextHistory,
   };
 }
