@@ -22,13 +22,15 @@ function chapterCounts(questions) {
 
 const bank600 = makeBank(40);
 
-test("midterm special bank contains 25 case-study questions for each covered chapter", () => {
+test("midterm special bank contains 300 application-focused case-study questions", () => {
   const midtermChapters = [1, 2, 3, 4, 6, 8, 9, 12];
-  assert.equal(midtermCaseStudyBank.length, 200);
+  assert.equal(midtermCaseStudyBank.length, 300);
   assert.ok(midtermCaseStudyBank.every((question) => question.caseStudy === true));
+  assert.ok(midtermCaseStudyBank.every((question) => question.options.length === 4));
+  assert.ok(midtermCaseStudyBank.every((question) => !/which chapter concept|which chapter does/i.test(question.prompt)));
   assert.deepEqual(
     Object.fromEntries(midtermChapters.map((chapter) => [chapter, midtermCaseStudyBank.filter((question) => question.chapter === chapter).length])),
-    Object.fromEntries(midtermChapters.map((chapter) => [chapter, 25])),
+    Object.fromEntries([1, 2, 3, 4].map((chapter) => [chapter, 38]).concat([6, 8, 9, 12].map((chapter) => [chapter, 37]))),
   );
 });
 

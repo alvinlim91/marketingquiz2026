@@ -1248,11 +1248,11 @@ export const questionBank = [
   ]),
 
   // Chapter 6
-  q("ch06-q001", 6, "131–135", "A shopper reads reviews and compares brands on a phone before visiting a store. Which chapter concept best describes this behavior?", 1, [
-    ["The end of the buyer decision process.", "The behavior may occur before purchase and can influence later stages; it is not necessarily the end."],
-    ["The zero moment of truth and a digitized, omnichannel consumer journey.", "Correct. The chapter highlights online information search before a purchase and movement across digital and physical touchpoints."],
-    ["A purely post-purchase loyalty loop.", "The scenario occurs before purchase, not only after it."],
-    ["A reduction in consumer choice.", "Digital comparison typically increases available information and perceived choice."],
+  q("ch06-q001", 6, "131–135", "A sportswear retailer notices that shoppers read reviews and compare brands on their phones before visiting the store to try on shoes. Which response best fits the consumer journey described in the chapter?", 2, [
+    ["Treat the digital research as irrelevant because the final transaction happens in the store.", "The chapter emphasizes that digital and physical touchpoints can work together before and during purchase."],
+    ["Invest only in checkout promotions and leave product information to the salesperson.", "A discount may influence conversion, but it does not address the information customers use before the visit."],
+    ["Coordinate useful online information with a consistent in-store experience so shoppers can move confidently across touchpoints.", "Correct. The customer journey is increasingly digitized and omnichannel, so the retailer should connect pre-visit research with the store experience."],
+    ["Remove online reviews so customers cannot compare the brand with alternatives.", "Suppressing comparison does not create trust and conflicts with how customers now gather information."],
   ]),
   q("ch06-q002", 6, "135–136", "In the consumer behavior “black box” model, what is the marketer trying to understand?", 0, [
     ["How stimuli and marketing inputs are processed into consumer responses.", "Correct. The black box represents the internal process between inputs and observable behavior."],
@@ -1874,6 +1874,84 @@ export const questionBank = [
     ["Retailers are irrelevant once advertising has created demand.", "Distribution partners and frontline explanations can affect customer access and value."],
     ["Repurchase is unrelated to marketing because it occurs after promotion.", "The chapter links marketing to relationships and repeat purchase, not only initial promotion."],
   ]),
+  caseQ("ch01-case-q026", 1, "4–8", "A meal-kit company wants to sell the same service to everyone, but interviews show that busy parents, older adults, and fitness enthusiasts value different outcomes. What should the team do before finalizing the offer?", 1, [
+    ["Use one broad promise so no potential customer feels excluded.", "A broad promise can become vague and fail to express a meaningful benefit for any priority customer."],
+    ["Identify the customer group it can serve best, the benefit that matters to that group, and how the offer can differ from alternatives.", "Correct. The chapter links target choice, value proposition, and differentiation as the strategic foundation."],
+    ["Let the production team choose the target based on whichever meals are easiest to prepare.", "Operational convenience does not establish which customers will value the service or why."],
+    ["Launch every possible version immediately and wait for sales to reveal the strategy.", "Testing can help, but the firm still needs a clear strategic hypothesis about customers and value."],
+  ]),
+  caseQ("ch01-case-q027", 1, "5–8", "A banking app promises “human help whenever you need it,” but customers receive automated replies and wait days for a response. Which marketing problem is most serious?", 3, [
+    ["The bank has chosen a digital channel rather than a physical branch.", "A digital channel can still deliver human support if the experience is designed and resourced appropriately."],
+    ["The promise is too specific for any service business to make.", "Specific promises can be valuable when the organization can deliver them consistently."],
+    ["The brand needs more advertising before customers understand the promise.", "More communication cannot repair a service experience that contradicts the promise."],
+    ["The delivered experience is inconsistent with the value proposition, which can weaken trust and loyalty.", "Correct. The chapter treats every relevant touchpoint as part of the value customers experience."],
+  ]),
+  caseQ("ch01-case-q028", 1, "2–7", "A customer-service team identifies repeated complaints about a confusing return process. It shares the evidence with product, operations, and finance, and the company redesigns the process. What does this response demonstrate?", 0, [
+    ["A marketing mindset can turn customer insight into coordinated decisions across the organization.", "Correct. Marketing is not isolated in one department; every function can influence customer value and relationships."],
+    ["Customer complaints should be handled only by service employees.", "Keeping the insight in one department would miss the functions that control the experience."],
+    ["The firm is using promotion to hide an operational weakness.", "The firm is changing the experience itself rather than masking the problem with communication."],
+    ["Finance should determine customer value without input from customers.", "Customer understanding should inform decisions even when financial consequences are involved."],
+  ]),
+  caseQ("ch01-case-q029", 1, "4–8", "A CMO reports that campaign awareness rose sharply, but consideration, trust, repeat use, and referrals did not improve. Which recommendation is most appropriate?", 2, [
+    ["Declare the campaign successful because awareness is the only customer outcome that matters.", "The chapter describes a progression from attention toward liking, trust, and loyalty rather than awareness alone."],
+    ["Stop measuring customer outcomes because they are too subjective for management.", "Customer outcomes can be measured with appropriate behavioral and attitudinal indicators."],
+    ["Investigate whether the offer and customer experience are earning the deeper responses that awareness has not produced.", "Correct. Marketing must create meaningful value and relationships, not merely exposure."],
+    ["Buy enough additional reach to force customers to become loyal.", "Additional reach cannot substitute for relevance, a credible promise, or a good experience."],
+  ]),
+  caseQ("ch01-case-q030", 1, "3–7", "An online retailer uses browsing data to personalize recommendations, but customers complain that the brand feels intrusive and cannot explain how their data is used. What should the marketing leader do?", 1, [
+    ["Increase personalization because more accurate recommendations will automatically restore trust.", "Personalization can improve relevance, but it cannot remove concerns about privacy and control."],
+    ["Balance technology's targeting benefits with transparent, responsible data practices that protect customer trust.", "Correct. Technology expands marketing capability while also creating ethical, privacy, and trust challenges."],
+    ["Stop collecting any information and return to identical offers for every customer.", "Responsible use of data can be valuable; the solution is not necessarily to eliminate useful relevance."],
+    ["Move all responsibility for the issue to the legal team and continue the campaign unchanged.", "Trust and relationship consequences make responsible data use a marketing and leadership issue as well as a legal one."],
+  ]),
+  caseQ("ch01-case-q031", 1, "12–14", "A Southeast Asian food-delivery service keeps one regional promise but adapts payment methods, language, menu emphasis, and support processes for three countries. Why is this approach defensible?", 3, [
+    ["All Asian markets have identical needs, so the local changes are merely cosmetic.", "The chapter emphasizes that Asian markets contain meaningful differences in culture, language, needs, and infrastructure."],
+    ["A brand must abandon its core identity whenever it enters a new market.", "Local adaptation can coexist with a coherent strategic core."],
+    ["Standardization is always more efficient and therefore always more customer-centered.", "Efficiency is not the only criterion; local relevance affects customer value."],
+    ["The same underlying value can require different ways of being communicated and delivered in different contexts.", "Correct. The chapter supports a coherent strategy with context-sensitive execution."],
+  ]),
+  caseQ("ch01-case-q032", 1, "3–7", "An engineering team proposes a feature because it is technically impressive. Customer interviews show that the feature does not solve the main problem users are trying to address. What should happen next?", 0, [
+    ["Revisit the customer problem and test which benefits, not just which capabilities, should guide the roadmap.", "Correct. The outside-in mindset starts with customer needs and desired value rather than internal enthusiasm."],
+    ["Add more technical complexity so the feature becomes harder for competitors to copy.", "Defensibility is useful only when the feature creates value for the target customer."],
+    ["Promote the feature aggressively until customers learn to want it.", "Communication cannot reliably create a meaningful need where the customer problem is absent."],
+    ["Define the target market as anyone who might appreciate advanced technology.", "A broad target does not solve the lack of a clear customer problem and value proposition."],
+  ]),
+  caseQ("ch01-case-q033", 1, "8–11", "A new snack becomes popular online, and shoppers begin asking retailers to stock it. Retailers increase orders even though the manufacturer has not offered unusual trade discounts. What best explains the sequence?", 2, [
+    ["The manufacturer used a production push that forced stores to accept inventory.", "The scenario begins with shopper demand rather than pressure from the manufacturer."],
+    ["The product is necessarily in the maturity stage of its life cycle.", "Demand and retailer orders do not identify a product life-cycle stage by themselves."],
+    ["Customer interest is creating a pull effect through the distribution system.", "Correct. Demand from customers can pull the product into retail availability."],
+    ["The manufacturer has used differential pricing between retail partners.", "No different pricing structure is described; the important mechanism is customer demand."],
+  ]),
+  caseQ("ch01-case-q034", 1, "1–7", "A company celebrates millions of impressions but discovers that customers still cannot explain what problem its service solves. Which improvement should come first?", 1, [
+    ["Increase impressions until the message becomes familiar enough to create value.", "Familiarity does not replace a clear, relevant value proposition."],
+    ["Clarify the customer problem and promised benefit before optimizing reach and frequency.", "Correct. Strategic clarity and customer value should guide communication effectiveness."],
+    ["Remove all customer research so the creative team can work without constraints.", "Customer insight is necessary for a meaningful promise and relevant communication."],
+    ["Measure only the cost per impression because outcomes are secondary.", "Efficiency metrics matter, but they do not show whether customers understand or value the offer."],
+  ]),
+  caseQ("ch01-case-q035", 1, "5–8", "A retailer's advertising promises next-day delivery, but its warehouse and logistics teams cannot meet that service level in the target region. What should the marketing team recommend?", 3, [
+    ["Keep the promise because advertising creates demand before operations become involved.", "The chapter treats delivery and operations as part of the customer value experience."],
+    ["Add a disclaimer in small print and continue using the headline claim.", "A misleading promise can damage trust even if a disclaimer technically qualifies it."],
+    ["Target only customers who are unlikely to check delivery performance.", "Avoiding informed customers is not a customer-centered strategy."],
+    ["Align the promise with what the organization can reliably deliver, or improve the capability before scaling the claim.", "Correct. The value proposition must be supported by the actual cross-functional experience."],
+  ]),
+  caseQ("ch01-case-q036", 1, "1–7", "A founder says, “Our product is for everyone because everyone uses a smartphone.” Which question should the marketing team ask first?", 2, [
+    ["Which advertising platform can reach the largest possible audience?", "Reach is premature when the team has not identified a meaningful customer problem or priority segment."],
+    ["Which logo color will appeal equally to every smartphone user?", "No execution detail can replace a clear understanding of who the offer is for."],
+    ["Which customers have the strongest need, what benefit matters to them, and why this offer is better than alternatives?", "Correct. These questions turn a broad market into a strategic target and value proposition."],
+    ["How can the company avoid choosing a target so it can remain flexible?", "Avoiding a target makes it difficult to create relevant value or meaningful differentiation."],
+  ]),
+  caseQ("ch01-case-q037", 1, "4–8", "A service company wants to compete by copying a rival's features, price, and advertising. Customer interviews show that the rival's users are frustrated by slow support. What opportunity should the company explore?", 0, [
+    ["A differentiated value proposition built around a customer outcome the rival is failing to deliver.", "Correct. Differentiation should be meaningful to customers, not merely a copy of a competitor's visible tactics."],
+    ["An identical promise delivered through a more expensive media plan.", "More spending on the same promise does not address the unmet support need."],
+    ["A broader target market that includes every category user.", "A broad audience does not automatically create a better value proposition."],
+    ["A product feature that is difficult to explain but easy for engineers to build.", "Internal ease of production does not make the feature valuable to customers."],
+  ]),
+  caseQ("ch01-case-q038", 1, "4–8", "A company funds a product pipeline that repeatedly produces clever prototypes, but none becomes a useful customer solution. Which leadership change is most consistent with the chapter?", 1, [
+    ["Separate innovation from marketing so engineers can protect their creativity.", "The chapter links innovation and marketing through customer creation and value, rather than separating them."],
+    ["Connect innovation decisions to customer problems, desired value, and evidence that the organization can deliver the promise.", "Correct. Marketing and innovation work together to create customers and future value."],
+    ["Treat every prototype as successful if it receives internal approval.", "Internal approval does not establish external customer value."],
+    ["Postpone customer research until after the full product pipeline is complete.", "Delayed customer learning increases the risk of investing in solutions that do not matter."],
+  ]),
 
   // Midterm case-study questions — Chapter 2
   caseQ("ch02-case-q001", 2, "15–18", "A marketing team sets a goal, implements a campaign, compares results with the goal, and changes the next action when performance falls short. Which process is this?", 1, [
@@ -2025,6 +2103,85 @@ export const questionBank = [
     ["It acts as a compass that reduces blind spots across internal, market, partner, competitive, and environmental factors.", "Correct. This is the strategic purpose of the 5Cs in the chapter."],
     ["It replaces the need to make choices because every C receives equal investment.", "Analysis supports choices; it does not eliminate prioritization."],
     ["It limits analysis to marketing communication so implementation stays simple.", "The 5Cs covers a much broader strategic environment."],
+  ]),
+
+  caseQ("ch02-case-q026", 2, "15–20", "A travel company plans a new service using last year's demand report, but new visa rules and inflation have changed how customers travel. What should the team do before approving the plan?", 0, [
+    ["Refresh its situation analysis so current context and customer conditions inform the opportunity.", "Correct. Marketing planning must respond to the environment rather than relying on outdated assumptions."],
+    ["Keep the old plan because changing it would make the earlier research worthless.", "Earlier research can still provide context, but current conditions must be incorporated."],
+    ["Ignore regulations because marketing controls only communication.", "Regulation and economic conditions can alter customer needs, access, and feasibility."],
+    ["Wait for competitors to make the first move and copy their response.", "Copying competitors delays learning and does not establish a customer-centered strategy."],
+  ]),
+  caseQ("ch02-case-q027", 2, "17–24", "A meal-delivery platform has strong customer demand, but its restaurant partners cannot prepare orders quickly enough to meet the promised delivery time. Which part of the analysis should receive attention?", 2, [
+    ["Only the customer analysis, because partner performance is outside marketing.", "Collaborators can directly affect the value delivered to customers and must be included."],
+    ["Only the competitor analysis, because faster rivals are the main issue.", "Competitor performance matters, but the immediate constraint involves the platform's collaborators."],
+    ["The collaborator and company analysis, including partner capability and the firm's ability to coordinate the service promise.", "Correct. The 5Cs framework examines the partners and internal capabilities that shape execution."],
+    ["The promotion analysis, because more advertising will make delivery feel faster.", "Communication cannot fix a fulfillment constraint that undermines the promised experience."],
+  ]),
+  caseQ("ch02-case-q028", 2, "20–28", "A beverage firm has a trusted local distribution network but faces a new rival with stronger data analytics. Which conclusion is most useful when building the firm's situation analysis?", 1, [
+    ["The rival's strength means the firm has no viable strategy.", "A competitor strength is an input to strategy, not proof that the firm has no options."],
+    ["The firm should connect its distribution strength with a response that addresses the competitor's data advantage and customer needs.", "Correct. Situation analysis is useful when internal strengths and external conditions are considered together."],
+    ["The firm should stop analyzing customers because distribution is already an advantage.", "A strength does not remove the need to understand customers or competitors."],
+    ["The firm should copy the rival's entire business model immediately.", "Imitation may ignore the firm's own capabilities and the specific opportunity."],
+  ]),
+  caseQ("ch02-case-q029", 2, "22–28", "A manager lists “strong brand reputation” as a strength, “new privacy regulation” as a weakness, and “rising demand for convenience” as a threat. What should the analyst correct?", 3, [
+    ["Brand reputation cannot be included in strategic analysis.", "A brand reputation can be an internal strength when it is relevant and evidenced."],
+    ["Regulation is always an internal weakness because the company must respond to it.", "Regulation originates in the external environment, even though it may create an internal challenge."],
+    ["Customer demand cannot be analyzed because it changes too quickly.", "Changing demand is precisely why environmental analysis matters."],
+    ["The labels should distinguish internal capabilities from external opportunities and threats before the strategy is chosen.", "Correct. Clear diagnosis prevents internal and external factors from being confused."],
+  ]),
+  caseQ("ch02-case-q030", 2, "24–31", "A competitor launches a cheaper version of a subscription service. The firm's first proposal is to match the price immediately, but customer research shows that many users value reliability more than the lowest fee. What should management do?", 0, [
+    ["Assess the competitor's move in context and decide whether to defend or strengthen a value proposition around reliability.", "Correct. Competitive analysis should inform a strategic response rather than trigger automatic imitation."],
+    ["Match the price before checking whether the firm can continue to deliver the service profitably.", "A price response can damage value and economics if it is not grounded in customer and company analysis."],
+    ["Ignore the competitor because price never affects customer choice.", "Price can matter, but the response should be based on the target customer's valued trade-offs."],
+    ["Raise the price sharply so the service appears premium to every segment.", "A higher price without a clear, relevant benefit may reduce rather than improve competitiveness."],
+  ]),
+  caseQ("ch02-case-q031", 2, "26–33", "A social-listening analyst finds repeated complaints that a rival's onboarding is confusing, even though the rival's sales remain strong. How should the firm use this evidence?", 2, [
+    ["Treat every online comment as a representative market estimate.", "Social listening can reveal signals but should be evaluated alongside other evidence."],
+    ["Assume the rival will lose all customers immediately.", "A complaint signal does not prove an immediate market collapse."],
+    ["Use it as an input for further customer and competitor research, then test whether a simpler onboarding experience could create meaningful value.", "Correct. Environmental and competitor signals should inform hypotheses, not replace validation."],
+    ["Copy the rival's product while leaving onboarding unchanged.", "The opportunity concerns the customer experience and should be investigated rather than copied mechanically."],
+  ]),
+  caseQ("ch02-case-q032", 2, "28–34", "A research team wants to interview customers, but a director argues that an industry report is enough. The firm is entering a new segment with unfamiliar needs. What is the best response?", 1, [
+    ["Use only the report because secondary data is always more objective.", "Secondary research can provide context but may not answer the firm's specific customer questions."],
+    ["Combine relevant secondary evidence with primary research to learn what this target segment actually values and does.", "Correct. Different evidence sources serve different purposes in situation analysis."],
+    ["Skip research and let the sales team select the segment from intuition.", "Sales insight can help, but relying on intuition alone increases the risk of biased assumptions."],
+    ["Interview only the firm's current customers because new prospects cannot provide useful information.", "Prospective customers in the new segment are central to understanding the opportunity."],
+  ]),
+  caseQ("ch02-case-q033", 2, "15–24", "An urban mobility firm sees rising bicycle use, remote work, and stricter emissions rules at the same time. Which planning response is most appropriate?", 3, [
+    ["Treat each change as unrelated because only direct competitors matter.", "The wider context can change customer needs, category boundaries, and viable business models."],
+    ["Focus only on its current taxi product and wait for demand to return.", "Waiting may miss a structural shift in the market."],
+    ["Increase advertising for taxis so customers remember the existing offer.", "Communication cannot by itself resolve changing mobility behavior and regulation."],
+    ["Use environmental scanning to evaluate how social, technological, economic, and regulatory changes could reshape the opportunity.", "Correct. The chapter stresses the need to understand the context around the immediate market."],
+  ]),
+  caseQ("ch02-case-q034", 2, "31–36", "A marketing plan contains attractive social posts and a media schedule, but it does not state what customer or business outcome the campaign is meant to change. What is missing?", 0, [
+    ["A clear objective that connects the activity to a desired customer or business outcome.", "Correct. Tactics are difficult to evaluate when the plan has no defined objective."],
+    ["More creative formats so the plan appears more complete.", "More tactics do not solve the absence of strategic direction and measurement."],
+    ["A larger list of competitors, even if the customer problem is still unclear.", "Competitive information is useful, but the plan still needs an outcome and strategic logic."],
+    ["A promise to use every available channel.", "Channel breadth is not a substitute for a clear objective."],
+  ]),
+  caseQ("ch02-case-q035", 2, "31–36", "A campaign reaches its target audience, but the desired trial rate is below the objective. The team reviews the data, interviews a sample of non-buyers, and changes the message and offer. What process is this?", 2, [
+    ["A one-time execution in which the original plan must never be altered.", "Marketing planning should learn from results rather than treat the initial plan as untouchable."],
+    ["A competitor imitation strategy based only on the rival's creative.", "The team is using its own performance and customer evidence to improve the plan."],
+    ["A control and learning loop that measures performance, diagnoses the gap, and adjusts action.", "Correct. Planning includes evaluation and feedback, not just initial execution."],
+    ["A decision to abandon objectives because measurement creates pressure.", "Objectives make the performance gap visible and guide improvement."],
+  ]),
+  caseQ("ch02-case-q036", 2, "23–30", "A company chooses a target segment because its total market is large, but the segment is difficult to reach and has little reason to switch from established alternatives. What should the team reconsider?", 1, [
+    ["The size of the total market, because a large category guarantees a viable target.", "Total market size alone does not establish accessibility, attractiveness, or fit."],
+    ["Whether the segment is attractive and reachable and whether the company has a credible reason to win there.", "Correct. Situation analysis must connect market opportunity with customer access and company capability."],
+    ["Whether the company can use more broad-reach advertising to avoid segment selection.", "Broad reach does not solve weak fit or the lack of a compelling reason to switch."],
+    ["Whether competitors should be excluded from the analysis to simplify the plan.", "Competitors are essential to understanding alternatives and the basis for winning."],
+  ]),
+  caseQ("ch02-case-q037", 2, "18–25", "A trend report predicts that consumers will soon abandon physical stores, but the firm's own data show customers using stores for trial and online channels for replenishment. How should the manager respond?", 3, [
+    ["Follow the report exactly because external forecasts are more important than company evidence.", "Forecasts can inform thinking but should be reconciled with relevant customer behavior."],
+    ["Ignore the trend report because internal data are always correct.", "Both sources can provide useful signals and should be assessed critically."],
+    ["Choose either online or physical retail so the customer journey stays simple.", "The evidence suggests customers may value complementary touchpoints rather than one channel only."],
+    ["Investigate the different jobs customers use each channel for and design the strategy around the combined journey.", "Correct. Good analysis explains behavior rather than forcing it into a single-channel assumption."],
+  ]),
+  caseQ("ch02-case-q038", 2, "15–36", "A company has completed customer, company, collaborator, competitor, and context analysis. The findings conflict: the target is attractive, but the firm lacks a partner needed to deliver the service. What should happen next?", 0, [
+    ["Resolve the capability or collaborator gap before committing to a value proposition the firm cannot deliver.", "Correct. Strategic attractiveness must be matched with the capabilities and relationships needed for execution."],
+    ["Ignore the gap because attractive customers will solve operational problems after launch.", "Customer interest does not automatically create missing delivery capability."],
+    ["Choose a different target without checking whether the same partner constraint remains.", "Changing the target may not solve a structural collaborator problem."],
+    ["Promote the service first and disclose the partner limitation later.", "Overpromising can create a poor experience and weaken trust."],
   ]),
 
   // Midterm case-study questions — Chapter 3
@@ -2179,6 +2336,85 @@ export const questionBank = [
     ["A pricing-only growth strategy with no segmentation", "The path depends on customer groups, value, and adoption, not only price."],
   ]),
 
+  caseQ("ch03-case-q026", 3, "46–48", "A skincare company first groups customers by age, then discovers that some teenagers and retirees share the same concern about sensitive skin. Which revision would improve the segmentation?", 2, [
+    ["Keep age as the only basis because demographic data are always easier to use.", "Ease of measurement does not make a demographic variable the most meaningful basis for the customer need."],
+    ["Stop segmenting because customers can never be grouped accurately.", "Useful segments do not require every customer to be identical; they require meaningful, actionable differences."],
+    ["Add needs and behavior so customers with the same problem can be served even when their ages differ.", "Correct. Need-based and behavioral variables can reveal more useful groups than age alone."],
+    ["Target every skincare customer with one undifferentiated offer.", "A single offer would discard the insight that customers have different needs and motivations."],
+  ]),
+  caseQ("ch03-case-q027", 3, "48–51", "A boutique hotel identifies a segment of remote workers who need quiet work areas, reliable Wi-Fi, and flexible day-use rooms. What makes this a stronger target than “young adults”?", 0, [
+    ["The segment is defined by a shared need and use occasion that can guide a specific value proposition.", "Correct. A useful segment should support meaningful differentiation and action, not merely describe a broad demographic."],
+    ["The segment is automatically profitable because remote workers are young.", "Profitability must be assessed rather than assumed from an age label."],
+    ["The hotel can ignore competitors because a need-based segment has no alternatives.", "Customers can still choose competing hotels, offices, or home arrangements."],
+    ["The segment is useful only if every remote worker has exactly the same income.", "Perfect uniformity is not required; meaningful shared needs are the important basis."],
+  ]),
+  caseQ("ch03-case-q028", 3, "48–52", "A start-up chooses a segment that is large and growing, but the customers are expensive to reach and the firm has no relevant capabilities. What should the founders conclude?", 3, [
+    ["Large and growing segments are always the best targets.", "Size and growth matter but do not establish fit, accessibility, or the ability to create value."],
+    ["The firm should target the segment anyway and build capabilities later.", "Entering without a credible way to serve the segment can waste resources and weaken the offer."],
+    ["The firm should target everyone so the capability gap becomes less visible.", "Broad targeting does not solve the lack of fit or reach."],
+    ["Target attractiveness must be balanced with accessibility and company fit before the choice is made.", "Correct. Segmentation and targeting require more than market size."],
+  ]),
+  caseQ("ch03-case-q029", 3, "49–54", "A meal app finds three groups: convenience-first users, budget-focused users, and users who care about healthy ingredients. It has resources to build a strong offer for only one group. Which approach is most appropriate?", 1, [
+    ["Use one message that lists every possible benefit to all three groups.", "Listing everything can make the value proposition vague and difficult to believe."],
+    ["Choose the segment where the need is meaningful, the opportunity is attractive, and the firm can deliver a distinctive offer.", "Correct. Concentrated targeting can create depth and focus when resources are limited."],
+    ["Choose the largest group without checking competitors or delivery capability.", "Size alone does not establish that the firm can win or serve the group well."],
+    ["Avoid choosing a segment until every group can be served equally well.", "Waiting for equal coverage can prevent a focused firm from making a viable strategic choice."],
+  ]),
+  caseQ("ch03-case-q030", 3, "50–55", "A B2B supplier describes its target as “large manufacturers,” but salespeople still do not know which roles approve the purchase or what each role values. What should the team add?", 2, [
+    ["A larger industry logo so the target sounds more prestigious.", "A broad industry label does not reveal the buying unit or stakeholder needs."],
+    ["A lower price that applies to every person in the customer organization.", "Price alone does not clarify the roles, needs, or decision process."],
+    ["A more detailed profile of the buying organization, roles, problems, decision criteria, and information needs.", "Correct. Effective B2B targeting must make the buying unit and its needs concrete."],
+    ["A consumer age bracket for the procurement department.", "Age is unlikely to capture the organizational buying dynamics described."],
+  ]),
+  caseQ("ch03-case-q031", 3, "52–57", "A sportswear brand sees a profitable niche among trail runners, but its main brand is known for urban fashion. What should it test before entering?", 0, [
+    ["Whether the niche's needs fit the brand's capabilities and whether the brand can earn credibility in that use context.", "Correct. A target should be attractive and reachable, but also compatible with what the firm can credibly deliver."],
+    ["Whether the niche is small enough that competitors will ignore it.", "A lack of competitors is not the only basis for choosing a target; customers and fit matter."],
+    ["Whether a broad fashion campaign can replace specialist product evidence.", "A broad campaign may not establish credibility for a performance-focused need."],
+    ["Whether the brand can avoid defining a distinct value proposition.", "The new target still needs a clear reason to choose the offer."],
+  ]),
+  caseQ("ch03-case-q032", 3, "55–59", "A firm groups customers by “high,” “medium,” and “low” spending, but the groups contain people with different reasons for buying and different service problems. What is the main limitation?", 3, [
+    ["Spending can never be used in segmentation.", "Spending can be useful, but it may not explain needs or guide a differentiated offer by itself."],
+    ["The firm should remove all behavioral data from the analysis.", "Behavioral data may help make the segments more actionable."],
+    ["The groups are too small because spending always creates narrow segments.", "The problem described is lack of meaningful need and behavior homogeneity, not necessarily size."],
+    ["The spending bands may describe value to the firm without explaining the customer differences the strategy must serve.", "Correct. Segmentation should reveal actionable customer differences, not only financial categories."],
+  ]),
+  caseQ("ch03-case-q033", 3, "57–61", "A footwear company discovers that customers who buy its running shoes differ in motivation: some train for races, some want comfort for commuting, and some want a fashionable casual shoe. What should the portfolio team do?", 1, [
+    ["Use one technical message because all customers buy footwear.", "A common category does not mean every customer seeks the same benefit or use occasion."],
+    ["Define distinct use-based segments and ensure each offer has a clear, non-confusing value proposition.", "Correct. Use occasion and desired benefit can support meaningful differentiation across segments."],
+    ["Raise the price of every model so customers assume the products are premium.", "Price signaling does not replace clear segment relevance and differentiation."],
+    ["Eliminate all models except the one with the highest unit margin.", "Margin matters, but eliminating offers without understanding segment value can sacrifice useful coverage."],
+  ]),
+  caseQ("ch03-case-q034", 3, "58–62", "A streaming service wants to target “people who love movies,” but research shows that some want family co-viewing, some want prestige drama, and some want short mobile entertainment. What should the positioning team do?", 2, [
+    ["Keep the broad target because all viewers are defined by the same category interest.", "Category interest is too broad to guide distinct needs, content, and value propositions."],
+    ["Choose the highest-income viewers and ignore the different use occasions.", "Income alone does not explain the viewing jobs described."],
+    ["Use needs, context, and behavior to create actionable segments with tailored propositions.", "Correct. The chapter supports segmentation that reveals meaningful differences inside a broad market."],
+    ["Offer every viewer the same content interface and message to avoid confusion.", "A single offer may be simpler internally but less relevant to different viewing missions."],
+  ]),
+  caseQ("ch03-case-q035", 3, "46–54", "A company finds a small segment with a severe problem, high willingness to pay, and few alternatives. The segment is too small for a mass-market launch but fits the firm's expertise. What does this suggest?", 0, [
+    ["A focused niche can be strategically attractive when the need is strong and the firm can serve it distinctively.", "Correct. Niche value depends on meaningful need, fit, and the ability to create a defensible proposition."],
+    ["The segment should be rejected because every target must be mass market.", "The chapter recognizes focused and niche strategies as viable when appropriately selected."],
+    ["The firm should lower the price to make the niche appear larger.", "Lowering price does not solve the question of value, fit, or economic viability."],
+    ["The firm should copy a mainstream competitor to reduce perceived risk.", "Copying may weaken the distinctiveness that makes the niche attractive."],
+  ]),
+  caseQ("ch03-case-q036", 3, "48–54", "A beverage brand segments by gender, but its research shows that hydration needs differ more by exercise intensity and climate than by gender. What should the brand change?", 3, [
+    ["Keep the gender split because it is familiar to the media team.", "Familiarity does not make a segmentation basis relevant to the customer's need."],
+    ["Use one universal drink and stop collecting customer data.", "The research has revealed meaningful differences that can improve targeting and product design."],
+    ["Target only the people who already purchase the brand.", "Existing buyers are important, but the strategy should explain relevant needs across potential users too."],
+    ["Rebuild the segments around exercise context, desired benefit, and usage behavior.", "Correct. Need and behavior variables are more relevant to the problem the product solves."],
+  ]),
+  caseQ("ch03-case-q037", 3, "49–55", "A new app is designed for “students,” but testing reveals that first-year students need guidance, final-year students need career tools, and part-time students need schedule flexibility. What should the product marketer do?", 1, [
+    ["Use one student message because the education status is the only common factor.", "A broad demographic label can hide different needs and use contexts."],
+    ["Create a clear priority segment or tailored propositions based on the different jobs and barriers revealed by research.", "Correct. The team should use meaningful needs and behavior to make the target actionable."],
+    ["Choose whichever group has the most social-media followers.", "Reach may matter, but it does not replace need, attractiveness, and strategic fit."],
+    ["Remove the career and schedule features so all students receive the same experience.", "Standardization would ignore the customer problems the research identified."],
+  ]),
+  caseQ("ch03-case-q038", 3, "46–63", "A firm has defined a segment that is measurable and large, but it cannot reach the customers efficiently or design a different offer for them. What should the marketer conclude?", 2, [
+    ["The segment is automatically suitable because measurement is enough.", "A segment must be more than measurable; it should support action and value creation."],
+    ["The firm should use mass marketing because differentiation is never necessary.", "Mass marketing is one possible coverage approach, not an automatic answer to poor segment actionability."],
+    ["The segment may be measurable but not sufficiently accessible or actionable for this firm's strategy.", "Correct. Effective segmentation requires practical reach and the ability to serve the group differently."],
+    ["The firm should advertise more before checking whether it can serve the segment.", "More advertising cannot solve a lack of access or a weakly differentiated offer."],
+  ]),
+
   // Midterm case-study questions — Chapter 4
   caseQ("ch04-case-q001", 4, "65–67", "A new meal-delivery brand is understood as a convenient option for busy urban professionals and is associated with reliable 20-minute delivery. Which positioning elements are present?", 3, [
     ["Only a promotional claim, because delivery time is a feature.", "The scenario describes broader category meaning and a benefit, not merely an ad claim."],
@@ -2329,6 +2565,85 @@ export const questionBank = [
     ["The platform needs only a new slogan because service processes do not affect positioning.", "The actual experience must support the desired meaning."],
     ["A trusted marketplace position is built by aligning customer insight, service design, and communication around a meaningful difference.", "Correct. This reflects the Carousell case and the gap between intended and actual position."],
     ["The platform should target everyone with the same message and remove seller standards.", "Clarity and trust require relevant standards and a credible customer experience."],
+  ]),
+
+  caseQ("ch04-case-q026", 4, "64–69", "A budget airline wants customers to see it as simple and transparent, but customers complain about confusing fees and difficult changes. Which action should come first?", 1, [
+    ["Increase the frequency of the current advertising so the intended image becomes familiar.", "More communication cannot repair experiences that contradict the desired position."],
+    ["Close the gap between the intended position and the actual customer experience before making a stronger claim.", "Correct. Positioning must be supported by what customers actually encounter."],
+    ["Add a luxury visual identity so the airline looks more distinctive.", "Distinctive design does not solve a credibility gap around simplicity and transparency."],
+    ["Target only customers who do not compare prices or fees.", "Avoiding informed customers is not a sustainable positioning strategy."],
+  ]),
+  caseQ("ch04-case-q027", 4, "65–70", "Two meal-delivery services both claim “fresh ingredients.” One provides farm-level traceability and the other provides faster preparation. Which positioning question should each answer?", 3, [
+    ["Which company has the most advertising impressions?", "Reach does not establish a meaningful point of difference."],
+    ["Which company has the lowest internal production cost?", "Internal cost matters to economics but does not by itself define the customer's perceived position."],
+    ["Which brand can use the same promise so customers never compare them?", "Identical promises make it harder for customers to understand meaningful differences."],
+    ["Which benefit is valued by the chosen customer and can each firm credibly deliver better than alternatives?", "Correct. Effective positioning connects customer value with credible differentiation."],
+  ]),
+  caseQ("ch04-case-q028", 4, "66–72", "A new cybersecurity service is highly distinctive, but its target customers do not understand why they need it and cannot see proof that it works. What should the team do?", 0, [
+    ["Make the distinctive benefit easier to understand and support it with credible evidence before scaling the claim.", "Correct. Distinctiveness alone is insufficient if customers do not find the position relevant and believable."],
+    ["Raise the price sharply so customers assume the service is valuable.", "Price may signal quality in some contexts, but it cannot replace relevance and proof."],
+    ["Remove the target market so the service can appeal to everyone.", "A clear target helps the team explain why the offer matters and what evidence is persuasive."],
+    ["Copy a competitor's slogan so the category becomes familiar.", "Category familiarity does not establish a credible and meaningful position for this service."],
+  ]),
+  caseQ("ch04-case-q029", 4, "67–72", "A furniture brand's map of customer perceptions shows that it is associated with low prices and basic quality, although management wants to be known for durable design. What should the brand examine?", 2, [
+    ["Only the media budget, because perception is created by advertising spend.", "Perception is shaped by the total experience, offer, proof, and communication, not spend alone."],
+    ["Whether customers are wrong and should be educated to accept the intended position.", "The brand must understand the existing perception rather than dismiss customer evidence."],
+    ["The gap between current and desired positioning and which product, service, and communication changes could credibly close it.", "Correct. A perceptual map helps diagnose where the brand is and where it wants to move."],
+    ["Whether the brand should add unrelated features to occupy more map space.", "More features do not automatically create a coherent position."],
+  ]),
+  caseQ("ch04-case-q030", 4, "69–73", "A coffee chain wants to be the “quiet neighborhood workspace,” but its stores are crowded, noisy, and difficult for customers to work in. What is the central positioning issue?", 1, [
+    ["The brand has too many competitors in the coffee category.", "Competition may matter, but the immediate issue is the mismatch between promise and experience."],
+    ["The desired point of difference is not being supported by the actual customer experience.", "Correct. Positioning must be credible at the point where customers encounter the brand."],
+    ["The brand needs a more complicated slogan to explain quietness.", "A more complicated message cannot solve an experience that disproves the claim."],
+    ["The chain should stop serving customers during busy periods.", "Operational changes may be part of the solution, but the strategic issue is promise-experience alignment."],
+  ]),
+  caseQ("ch04-case-q031", 4, "71–75", "A challenger tablet brand cannot outspend the market leader, so it positions itself around repairability and long-term ownership. Customers who dislike disposable electronics respond strongly. What makes this a promising position?", 3, [
+    ["It copies the leader's strongest association at a lower price.", "Copying a leader does not create a meaningful basis for preference."],
+    ["It appeals to every tablet buyer regardless of their priorities.", "The response is strongest among customers who value repairability and ownership."],
+    ["It relies on a feature that customers cannot verify after purchase.", "A position needs credible evidence and a relevant customer benefit."],
+    ["It connects a valued customer concern with a distinctive benefit the challenger can credibly own.", "Correct. Positioning is strongest when relevance, differentiation, and credibility reinforce one another."],
+  ]),
+  caseQ("ch04-case-q032", 4, "72–76", "A brand mantra says “Make every journey feel possible.” The product team uses it to guide features, the agency uses it to guide tone, and the service team uses it to guide recovery. What is the mantra doing?", 0, [
+    ["It acts as an internal guide for keeping different brand decisions and experiences aligned.", "Correct. A brand mantra can focus internal choices around the desired meaning and customer experience."],
+    ["It replaces the need to understand customer segments.", "The mantra should guide execution after the target and value direction are understood."],
+    ["It functions only as a public advertising slogan.", "The scenario shows an internal role across product, communication, and service."],
+    ["It guarantees that every customer will interpret the brand identically.", "Customer interpretation cannot be fully controlled; consistency improves the chance of a coherent experience."],
+  ]),
+  caseQ("ch04-case-q033", 4, "64–72", "A low-cost airline adds premium lounges and private transfers but keeps its core promise of no-frills affordability. Customers become unsure who the airline is for. What should management review?", 2, [
+    ["Only the logo, because visual identity determines the target customer.", "Visual identity can signal meaning but cannot resolve a confused offer and target."],
+    ["Whether adding every possible benefit will increase the size of the market.", "More benefits can weaken clarity and create a poor fit with the existing position."],
+    ["Whether the new services create a coherent value proposition or blur the brand's frame of reference and target.", "Correct. Positioning requires a clear, credible, and distinctive meaning rather than unrelated additions."],
+    ["Whether to remove customer research so the brand can be more flexible.", "Customer evidence is needed to understand confusion and evaluate the revised position."],
+  ]),
+  caseQ("ch04-case-q034", 4, "67–73", "A health drink claims to be “scientifically proven,” but the only evidence is a small internal test with no clear comparison. What should the marketer do?", 1, [
+    ["Repeat the claim more often so it becomes a category expectation.", "Repetition cannot turn weak evidence into a credible reason to believe."],
+    ["Strengthen the evidence or use a more modest promise that the brand can support.", "Correct. A positioning claim must be credible, not merely distinctive."],
+    ["Add a celebrity endorsement so proof is no longer necessary.", "Endorsement may influence attention but does not replace evidence for a scientific claim."],
+    ["Target customers who are unlikely to ask for evidence.", "Avoiding scrutiny does not build a sustainable or trustworthy position."],
+  ]),
+  caseQ("ch04-case-q035", 4, "69–75", "A resale platform changes its message from “online listings” to “trusted selling made simple” after adding condition checks, safer payment, and seller protection. Why can this repositioning be credible?", 3, [
+    ["The new slogan is shorter than the old one, so customers will automatically prefer it.", "Brevity alone does not establish a credible position."],
+    ["The platform is using promotion to hide that the service has not changed.", "The scenario describes substantive experience changes that support the message."],
+    ["The brand is appealing to every possible seller with no specific benefit.", "The promise focuses on a clear benefit around trust and ease."],
+    ["The communication is being supported by product and process changes that make the desired benefit real.", "Correct. Positioning becomes credible when the delivered experience supports the promise."],
+  ]),
+  caseQ("ch04-case-q036", 4, "66–74", "A phone brand is known for security, while a rival is known for expressive design. The first brand wants to become more stylish without losing its trusted association. What should it protect?", 0, [
+    ["The core association that gives the brand credibility while adding a distinctive design benefit that fits the target customer.", "Correct. Repositioning can broaden meaning, but it should preserve valuable equity and credibility."],
+    ["Every existing product feature, even if it conflicts with the new direction.", "Some elements may need to change to support the revised position."],
+    ["The assumption that customers will accept any extension from a trusted brand.", "Brand trust does not guarantee acceptance of a poorly fitted change."],
+    ["The old advertising exactly as it appeared before the repositioning.", "Communication may need to evolve with the intended meaning and experience."],
+  ]),
+  caseQ("ch04-case-q037", 4, "64–70", "A perceptual map shows an empty space for affordable, family-friendly electric vehicles, but interviews reveal that families distrust the battery range in that space. What should the company do?", 1, [
+    ["Enter immediately because any empty perceptual space is a guaranteed opportunity.", "An empty space may reflect an unmet need, but it can also reflect an unmet proof or delivery challenge."],
+    ["Investigate and solve the range-confidence concern before claiming the empty position.", "Correct. Positioning opportunities must be relevant and credible, not merely visually empty on a map."],
+    ["Ignore the customer concern because perceptual maps are more reliable than interviews.", "Maps and interviews should complement each other in understanding perceptions and barriers."],
+    ["Use a luxury price so customers assume the battery is better.", "Price alone does not provide the evidence families need."],
+  ]),
+  caseQ("ch04-case-q038", 4, "64–80", "A brand has a clear target and a distinctive promise, but its website, packaging, store staff, and delivery experience each communicate a different personality. What should the manager prioritize?", 2, [
+    ["Add more slogans so customers see the same words more often.", "Repeated words cannot replace coherent experiences across touchpoints."],
+    ["Let each function create its own interpretation so the brand feels flexible.", "Uncoordinated interpretations can create confusion and weaken the position."],
+    ["Align the relevant touchpoints and internal teams so the intended position is consistently experienced.", "Correct. Positioning is strengthened when product, service, employees, and communications reinforce one another."],
+    ["Remove the target customer so the differences are less noticeable.", "A clear target helps teams make consistent choices and should not be abandoned."],
   ]),
 
   // Midterm case-study questions — Chapter 6
@@ -2483,6 +2798,79 @@ export const questionBank = [
     ["Replacing customer behavior with internal assumptions", "The firm is actively gathering customer evidence."],
   ]),
 
+  caseQ("ch06-case-q026", 6, "135–138", "A shopper realizes that her old laptop will not run the software required for a new job. She begins searching for alternatives and asks colleagues for advice. Which response should a laptop marketer recognize?", 0, [
+    ["The customer has moved from need recognition into information search, so useful guidance can help shape the consideration set.", "Correct. A problem has triggered the decision process and the customer is now gathering information."],
+    ["The customer has completed the process because she has noticed the problem.", "Need recognition starts the process; it is not the same as purchase or completion."],
+    ["The customer is in a post-purchase loyalty loop.", "The scenario occurs before purchase."],
+    ["The customer is no longer influenced by marketing because advice comes from colleagues.", "Peers and other touchpoints are part of the information environment marketers need to understand."],
+  ]),
+  caseQ("ch06-case-q027", 6, "136–140", "A grocery app presents 80 similar cereal choices. Shoppers spend a long time comparing labels and often leave without buying. What should the retailer test?", 2, [
+    ["Add even more brands so every possible preference is represented.", "More options may intensify the decision difficulty already visible in the scenario."],
+    ["Hide all product information so customers decide faster.", "Removing useful information can reduce confidence and trust."],
+    ["Use relevant filters, recommendations, and clearer choice architecture to reduce overload without removing valued options.", "Correct. The retailer should help customers make decisions while preserving meaningful choice."],
+    ["Offer the same cereal to everyone and remove segmentation.", "A single choice may simplify the interface but would ignore different needs and preferences."],
+  ]),
+  caseQ("ch06-case-q028", 6, "139–142", "A customer chooses a trusted brand at a higher price because the purchase is important and failure would be embarrassing. Which implication follows for the marketer?", 1, [
+    ["The customer is making a low-involvement decision that requires no information.", "The importance and perceived social risk suggest higher involvement."],
+    ["The brand should provide credible reassurance and evidence that reduce functional and social risk.", "Correct. In higher-involvement decisions, trust, proof, and risk reduction can influence choice."],
+    ["The marketer should remove all comparison information so the premium is not questioned.", "Customers may need more credible information, not less, when risk is meaningful."],
+    ["Price is irrelevant because customers never trade off benefits and cost.", "The customer is making a trade-off, even if trust justifies the higher price."],
+  ]),
+  caseQ("ch06-case-q029", 6, "142–146", "A customer orders a sofa online after reading strong reviews, but worries during the delivery wait that the color will look different at home. What should the brand do?", 3, [
+    ["Stop communicating after payment because the decision is complete.", "Post-purchase communication can reduce uncertainty and support the experience."],
+    ["Send unrelated promotions so the customer focuses on a future purchase.", "The immediate concern is confidence in the current purchase, not unrelated promotion."],
+    ["Tell the customer that doubt proves the purchase was irrational.", "Such a response would increase anxiety and damage the relationship."],
+    ["Provide accurate delivery updates, realistic product visualization, and easy support or return information.", "Correct. These touchpoints can reduce post-purchase dissonance and strengthen trust."],
+  ]),
+  caseQ("ch06-case-q030", 6, "141–149", "A cinema sees customers abandon ticket purchases when the booking page requires too many steps and hides seat availability until checkout. What should the team change first?", 0, [
+    ["Remove friction and make key information visible at the point customers are deciding.", "Correct. Journey design should reduce confusion and effort at important touchpoints."],
+    ["Increase awareness advertising so customers enter the same difficult booking flow more often.", "More traffic does not solve a conversion barrier in the experience."],
+    ["Offer a loyalty program before fixing the booking process.", "Loyalty benefits may help, but the immediate problem is avoidable journey friction."],
+    ["Hide seat information completely so customers do not compare options.", "Less transparency can reduce confidence rather than improve conversion."],
+  ]),
+  caseQ("ch06-case-q031", 6, "145–150", "A health-food brand receives praise from one market and criticism from another because the same image suggests different meanings about family and health. What should the global team do?", 2, [
+    ["Assume one market has misunderstood the message and keep the execution identical.", "Different cultural interpretations are evidence that meaning is context-dependent."],
+    ["Stop using visual communication in every market.", "The issue is adaptation and understanding, not a universal problem with visual messages."],
+    ["Research local meanings and adapt the relevant touchpoints while protecting the core customer value.", "Correct. Consumer interpretation is shaped by culture, experience, and context."],
+    ["Use a higher media budget so the preferred meaning overwhelms other interpretations.", "More exposure cannot guarantee a culturally appropriate interpretation."],
+  ]),
+  caseQ("ch06-case-q032", 6, "137–143", "A subscription service notices that customers say the product is useful but cancel because they forget how to use it after the first week. What should the marketer investigate?", 1, [
+    ["Whether the company should stop collecting feedback because the product is already judged useful.", "Usefulness does not remove the need to understand the adoption and use experience."],
+    ["Whether onboarding, reminders, and ongoing support can help customers convert initial value into a repeated habit.", "Correct. Consumer behavior continues after purchase and can be shaped by relevant support."],
+    ["Whether the firm should advertise only to customers who never cancel.", "That would avoid the problem rather than improve the customer experience."],
+    ["Whether price is the only reason customers discontinue a subscription.", "The scenario points to use and habit formation, not price alone."],
+  ]),
+  caseQ("ch06-case-q033", 6, "131–141", "A fashion retailer sees shoppers discover products on social media, compare reviews, visit a store to try them, and complete the purchase through the app. Which operating decision is most important?", 3, [
+    ["Assign each touchpoint to a separate team and prevent teams from sharing data.", "Siloed touchpoints can create inconsistent experiences and lost information."],
+    ["Focus only on the store because physical trial is the final step before purchase.", "The customer uses several touchpoints that contribute to the decision."],
+    ["Remove the app so the journey has one clear channel.", "The scenario shows customers valuing complementary digital and physical options."],
+    ["Connect the touchpoints and customer information so the journey feels continuous across discovery, evaluation, trial, and purchase.", "Correct. The chapter emphasizes an omnichannel journey rather than isolated channel stages."],
+  ]),
+  caseQ("ch06-case-q034", 6, "137–146", "A customer chooses a familiar detergent without comparing alternatives because the purchase is routine and low risk. What should the marketer avoid assuming?", 0, [
+    ["That every category decision is high involvement and requires extensive persuasion.", "Routine, low-risk decisions may use shortcuts and require different marketing support."],
+    ["That brand familiarity can matter in repeat purchase.", "Familiarity can influence routine choice and is not an assumption the marketer should avoid."],
+    ["That convenience can be part of the value customers seek.", "Convenience is often important in routine decisions."],
+    ["That consumers may use simplified decision rules in familiar situations.", "Heuristics and low-effort processing can be relevant to routine purchases."],
+  ]),
+  caseQ("ch06-case-q035", 6, "142–151", "A travel brand sends a customer a helpful packing checklist after booking, provides timely updates, and makes support easy during the trip. What is the likely strategic benefit?", 2, [
+    ["It guarantees the customer will never experience a service problem.", "Helpful touchpoints reduce uncertainty but cannot guarantee a perfect experience."],
+    ["It makes the original purchase irrelevant after booking.", "Post-purchase experience can influence satisfaction, trust, and future behavior."],
+    ["It reinforces value across the journey and can support satisfaction, trust, and advocacy.", "Correct. Marketing continues through use, support, and post-purchase relationships."],
+    ["It replaces the need to understand customer expectations before booking.", "Understanding expectations remains important for designing the whole journey."],
+  ]),
+  caseQ("ch06-case-q036", 6, "135–148", "An electronics retailer notices that shoppers who read expert reviews convert more often than shoppers who see only promotional claims. Which change is most sensible?", 1, [
+    ["Remove expert reviews so the retailer controls every message.", "Removing credible information can increase uncertainty and reduce trust."],
+    ["Make useful, credible information easier to find while ensuring claims are accurate and relevant to the decision.", "Correct. Consumers use information and social proof to reduce uncertainty before purchase."],
+    ["Replace all reviews with a larger discount.", "Price may influence conversion, but it does not provide the same information or reassurance."],
+    ["Show the same generic claim on every product page.", "Different products and customers may need different relevant evidence."],
+  ]),
+  caseQ("ch06-case-q037", 6, "141–157", "A brand maps awareness, evaluation, purchase, use, support, and advocacy, then discovers that customers are satisfied with the product but frustrated by returns. What should it prioritize?", 3, [
+    ["Invest only in awareness because the product itself is satisfactory.", "A weak return experience can affect trust and advocacy even when the product works."],
+    ["Treat returns as a finance issue that cannot influence marketing outcomes.", "Returns are a customer touchpoint that can shape satisfaction and loyalty."],
+    ["Remove the return option so fewer customers encounter the problem.", "Reducing customer protection can increase perceived risk and damage trust."],
+    ["Improve the return touchpoint and measure whether the change strengthens the overall journey and advocacy.", "Correct. Journey management focuses on removing friction across all important stages."],
+  ]),
+
   // Midterm case-study questions — Chapter 8
   caseQ("ch08-case-q001", 8, "185–186", "A product team must choose between three feature roadmaps. It returns to a statement describing the long-term customer and ecosystem value the product should create. What is guiding the choice?", 2, [
     ["A short-term sprint backlog", "A backlog lists near-term work but does not express the product's long-term direction."],
@@ -2633,6 +3021,79 @@ export const questionBank = [
     ["A one-way product launch without community involvement", "Interactive sessions and fan communities make the experience participatory."],
     ["A closed ecosystem that prevents partner expansion", "The platform and partner are opening access to each other's networks."],
     ["Shared experiences, community loyalty, partnership reach, and a broader value proposition around the core content.", "Correct. These are the case's lessons about platforms and ecosystems."],
+  ]),
+
+  caseQ("ch08-case-q026", 8, "188–193", "A product team must choose between a colorful interface, faster search, and a simpler checkout. Customer research shows that users abandon the product when they cannot find what they need quickly. Which choice should lead the roadmap?", 1, [
+    ["The feature that is most visually impressive to the internal team.", "Internal excitement does not establish customer value or solve the observed problem."],
+    ["The improvement that most directly reduces the customer problem while supporting the product's value proposition.", "Correct. Product strategy should prioritize meaningful customer value rather than feature novelty."],
+    ["All three features immediately, even if the product becomes harder to use.", "Adding every feature can increase complexity and weaken the core experience."],
+    ["The feature that is easiest for engineering to build regardless of customer impact.", "Build effort matters, but it should be considered alongside customer value and strategic fit."],
+  ]),
+  caseQ("ch08-case-q027", 8, "189–195", "A smart-home company sells a device, installation, software updates, and customer support as one experience. A competitor offers only the physical device at a lower price. What should the team explain?", 0, [
+    ["The customer's value can include the core product plus supporting services that reduce effort and risk over time.", "Correct. Product strategy considers the broader value proposition, not just the physical feature set."],
+    ["The physical device is the only product element customers can value.", "Installation, updates, and support can materially affect use and perceived value."],
+    ["The lower-priced competitor must be better because services are never part of product value.", "Price alone does not capture the complete customer experience."],
+    ["Support should be hidden because customers prefer not to think about future use.", "Clear support can reduce uncertainty and strengthen adoption and retention."],
+  ]),
+  caseQ("ch08-case-q028", 8, "193–198", "A product manager wants to add every requested feature to a collaboration tool, but customer interviews show that teams mainly struggle with assigning responsibility. What should the manager do?", 2, [
+    ["Add every feature because customer requests are always equally important.", "Requests need to be prioritized by the problem, value, and strategic fit."],
+    ["Ignore the interviews because feature count is the clearest measure of product quality.", "Feature count does not guarantee that the product solves the customer's main job."],
+    ["Prioritize a clear responsibility workflow and test whether it improves the customer outcome before expanding the roadmap.", "Correct. Product strategy should focus on the underlying customer problem rather than accumulate features."],
+    ["Remove all collaboration features so the product has one simple function.", "The goal is to improve the central workflow, not to discard relevant product value."],
+  ]),
+  caseQ("ch08-case-q029", 8, "195–201", "A sustainable-packaging brand learns that customers like the environmental promise but cannot verify the claims and find the packaging difficult to use. Which product decision is most important?", 3, [
+    ["Increase environmental advertising while leaving the packaging experience unchanged.", "Communication cannot compensate for poor usability or unsubstantiated claims."],
+    ["Remove all sustainability information so customers focus on appearance.", "Removing information can reduce trust and misses a valued benefit."],
+    ["Copy a competitor's green label without changing the product.", "Imitation does not solve credibility or usability."],
+    ["Make the sustainability benefit credible and convenient by improving evidence, design, and the use experience together.", "Correct. Customer value combines the promised benefit with proof and practical delivery."],
+  ]),
+  caseQ("ch08-case-q030", 8, "201–206", "A software company offers a free basic plan, paid collaboration features, integrations, and onboarding support. Customers choose different combinations depending on team size and complexity. What should product strategy manage?", 1, [
+    ["One universal package so customers cannot compare alternatives.", "Different needs and willingness to pay may justify a structured offering rather than one package."],
+    ["A coherent product and value architecture that helps different customers choose an appropriate level of capability and support.", "Correct. Product strategy includes the relationship among features, services, users, and value levels."],
+    ["Only the free plan, because paid features create customer confusion.", "A clear architecture can make paid value easier to understand rather than eliminating it."],
+    ["The largest possible feature list, regardless of whether teams use it.", "Unused features can increase complexity without improving customer value."],
+  ]),
+  caseQ("ch08-case-q031", 8, "197–203", "A fitness app lets users vote on new workouts, tests prototypes with a small community, and changes the roadmap based on actual use. What is the main benefit of this approach?", 0, [
+    ["It brings customer insight into product development and reduces the risk of investing in unwanted features.", "Correct. Co-creation and iterative testing can connect product decisions to real customer needs and behavior."],
+    ["It guarantees that every requested feature should be built.", "Customer input informs prioritization but does not remove strategic judgment."],
+    ["It allows the product team to avoid defining a target customer.", "The team still needs a clear customer and value direction."],
+    ["It shifts all product responsibility to the community.", "The firm remains responsible for strategy, quality, and delivery."],
+  ]),
+  caseQ("ch08-case-q032", 8, "204–208", "A ride-hailing company adds food delivery and payments, allowing users to solve several everyday needs in one account. What should management monitor as the ecosystem grows?", 2, [
+    ["Only the number of services, because more services automatically create more value.", "More services can also add complexity and create a fragmented experience."],
+    ["Whether every service uses identical operations even when customer jobs differ.", "Consistency matters, but identical operations are not the only or always the right objective."],
+    ["Whether the connected ecosystem creates useful convenience and trust without weakening the experience in each core service.", "Correct. Ecosystem value depends on complementary usefulness and a coherent customer experience."],
+    ["Whether the company can stop researching customers once the ecosystem is launched.", "New services change needs and expectations, so learning remains necessary."],
+  ]),
+  caseQ("ch08-case-q033", 8, "190–202", "A product's dashboard contains many settings, but new users cannot complete the main task without training. What should the product team prioritize?", 3, [
+    ["Add more settings so advanced users can see that the product is powerful.", "More complexity may make the core task even harder."],
+    ["Hide the problem in the onboarding copy and continue adding features.", "Copy cannot substitute for an intuitive product experience."],
+    ["Measure only the number of settings because it is an easy product metric.", "Feature counts do not reveal whether customers can achieve the intended outcome."],
+    ["Simplify the core journey and make the product's value easier to experience before expanding optional complexity.", "Correct. Product value is realized through successful use, not feature volume alone."],
+  ]),
+  caseQ("ch08-case-q034", 8, "202–208", "An equipment maker stops selling machines outright and instead charges for access, maintenance, software updates, and performance support. What should it measure?", 1, [
+    ["Only the number of machines shipped in the first month.", "An access model creates ongoing value and requires measures beyond initial shipment."],
+    ["Usage, customer outcomes, retention, service quality, and the economics of delivering the ongoing relationship.", "Correct. Product-as-a-Service shifts attention toward continuing use and value delivery."],
+    ["Only the initial list price, because service is included for free.", "The model's economics depend on ongoing usage, support, cost, and retention."],
+    ["Whether customers can avoid using the updates and support.", "The value of the model comes partly from the ongoing service relationship."],
+  ]),
+  caseQ("ch08-case-q035", 8, "187–195", "A product team discovers that customers describe the same feature as “time-saving” in one segment and “loss of control” in another. What should the team do?", 0, [
+    ["Investigate the different jobs and contexts, then tailor the value proposition or experience where appropriate.", "Correct. The same feature can create different value depending on customer needs and context."],
+    ["Choose the most positive interpretation and use it for every customer.", "A universal interpretation may ignore meaningful differences in customer value."],
+    ["Remove the feature because different reactions mean it has no value.", "Different reactions may indicate segment-specific value rather than no value."],
+    ["Add more technical detail so every customer understands the feature identically.", "Understanding technical detail does not guarantee that the feature fits each customer's desired outcome."],
+  ]),
+  caseQ("ch08-case-q036", 8, "196–205", "A company has many product ideas but limited development capacity. The best ideas are those that solve a significant customer problem and fit the firm's capabilities. Which decision rule is being applied?", 2, [
+    ["Prioritize ideas solely by the number of internal supporters.", "Internal support is not a sufficient measure of customer value or strategic fit."],
+    ["Choose the ideas with the most features so the roadmap looks ambitious.", "Feature volume does not establish value or feasibility."],
+    ["Balance customer value, strategic fit, and the organization's ability to deliver the promised experience.", "Correct. Product strategy requires prioritization across customer and company considerations."],
+    ["Delay every decision until competitors reveal their roadmaps.", "Competitor information may inform choices but should not replace customer and capability analysis."],
+  ]),
+  caseQ("ch08-case-q037", 8, "197–208", "A new app has many downloads, but users do not complete the first task or return after trying it once. What should the product manager investigate?", 3, [
+    ["Whether download volume alone proves product-market fit.", "Downloads show awareness or trial, not necessarily sustained value or fit."],
+    ["Whether more advertising can compensate for the weak first-use experience.", "More traffic may increase the number of people encountering the same product problem."],
+    ["Whether the app should add a separate feature for every user who stops using it.", "The team should diagnose the core problem before adding disconnected features."],
+    ["Whether the product solves a meaningful problem and makes the promised value easy to realize during adoption and use.", "Correct. Product-market fit involves sustained customer value, not just acquisition."],
   ]),
 
   // Midterm case-study questions — Chapter 9
@@ -2787,6 +3248,79 @@ export const questionBank = [
     ["A maturity-stage awareness campaign", "The primary action is portfolio streamlining."],
   ]),
 
+  caseQ("ch09-case-q026", 9, "211–216", "A new home-security service is easy to try, clearly better than the old manual process, and simple to observe when neighbors use it. What should the launch team emphasize?", 1, [
+    ["Only a low price, because adoption is determined by cost alone.", "Price can matter, but adoption is also influenced by relative advantage, trialability, simplicity, and observability."],
+    ["Demonstration, easy trial, and clear evidence of the new service's advantage.", "Correct. These characteristics can reduce uncertainty and support diffusion."],
+    ["A complex technical explanation that makes the service look advanced.", "Complexity can slow adoption when customers need to understand and try the innovation."],
+    ["A broad promise that avoids describing how the service changes behavior.", "Customers need a clear reason to adopt and evidence that the change is worthwhile."],
+  ]),
+  caseQ("ch09-case-q027", 9, "216–221", "A new beverage gains early trial among trend-focused customers, but mainstream shoppers say they do not understand how it fits their routines. What should the brand do next?", 3, [
+    ["Treat early-adopter enthusiasm as proof that the mainstream will adopt automatically.", "Early adoption does not remove the need to address the mainstream segment's concerns."],
+    ["Make the product more technically complex so it appears innovative.", "Greater complexity can make adoption harder."],
+    ["Stop serving early adopters because they are too small a group.", "Early adopters can provide learning and social proof while the brand broadens relevance."],
+    ["Translate the product's benefit into familiar use occasions and provide evidence that reduces mainstream uncertainty.", "Correct. Moving beyond a niche requires a relevant and understandable value proposition."],
+  ]),
+  caseQ("ch09-case-q028", 9, "220–225", "A streaming service is growing quickly, but competitors offer similar content and customers can switch easily. Which product-management response is strongest?", 0, [
+    ["Strengthen meaningful differentiation, improve the experience, and build reasons for continued use rather than relying on growth alone.", "Correct. Growth can be vulnerable when competitive alternatives and switching ease are high."],
+    ["Add unrelated content as quickly as possible, even if discovery becomes harder.", "Unfocused expansion can create complexity without strengthening customer value."],
+    ["Raise the price to signal that the service is more distinctive.", "Price alone does not create a meaningful point of difference."],
+    ["Stop monitoring competitors because product quality is independent of alternatives.", "Competitive alternatives shape customers' choices and expectations."],
+  ]),
+  caseQ("ch09-case-q029", 9, "222–227", "A mature snack brand faces stable demand. It introduces new flavors for existing buyers, improves packaging convenience, and rewards repeat purchase. What is the likely objective?", 2, [
+    ["Create an entirely new category with no connection to existing customers.", "The actions focus on strengthening the existing product and customer base."],
+    ["Harvest the product immediately because maturity means the product has no future.", "Maturity can support retention and incremental innovation rather than immediate withdrawal."],
+    ["Defend and extend the product's life by improving relevance, convenience, and loyalty.", "Correct. Mature products often require differentiation and relationship support to sustain demand."],
+    ["Replace the product with a completely unrelated technology platform.", "Nothing in the scenario indicates an unrelated diversification move."],
+  ]),
+  caseQ("ch09-case-q030", 9, "224–229", "A declining magazine has a loyal professional readership but little appeal to casual readers. The publisher reduces broad distribution and focuses on premium subscriptions for the loyal base. What strategy is this closest to?", 1, [
+    ["Mass-market expansion through broader undifferentiated reach.", "The publisher is narrowing focus rather than expanding to everyone."],
+    ["A selective harvest or niche focus that serves remaining profitable demand.", "Correct. A declining product may remain viable with a focused customer and economic model."],
+    ["A launch strategy for a new product category.", "The product already exists and is being managed in decline."],
+    ["An attempt to eliminate loyal customers so the product can disappear faster.", "The strategy preserves value from customers who still want the product."],
+  ]),
+  caseQ("ch09-case-q031", 9, "226–232", "A laptop company offers one line for students, one for creators, and one for gamers, but the models share similar names and features. Customers struggle to choose. What should the manager review?", 3, [
+    ["Whether to add more models so every possible preference is represented.", "More options may intensify confusion and internal overlap."],
+    ["Whether all customers can be treated as one segment with one promise.", "The portfolio already reflects different use cases and should clarify them rather than erase them."],
+    ["Whether product names are more important than the underlying value propositions.", "Names matter, but the portfolio needs clear benefit and use-case differentiation."],
+    ["Whether the line architecture and positioning clearly distinguish the products by customer job and benefit.", "Correct. Product lines should help customers understand the choice and reduce cannibalization or confusion."],
+  ]),
+  caseQ("ch09-case-q032", 9, "228–233", "A clothing brand launches cosmetics under its name. The brand is trusted for style but not for skincare expertise, and customers question the fit. What should management assess?", 0, [
+    ["Whether the extension has credible fit with the parent brand and a meaningful reason for customers to accept it.", "Correct. Brand or category extensions can create growth but may also stretch associations beyond credibility."],
+    ["Whether a lower price will automatically transfer trust from clothing to cosmetics.", "Price does not establish expertise or fit."],
+    ["Whether the brand can avoid explaining the connection between categories.", "Customers need a credible rationale for the extension."],
+    ["Whether every existing clothing customer will buy cosmetics.", "Existing customers may not share the same needs or perceptions in the new category."],
+  ]),
+  caseQ("ch09-case-q033", 9, "229–233", "A company adds so many versions of a product that each new model takes sales from another model and customers cannot see the differences. What should the portfolio team do?", 2, [
+    ["Add even more versions to capture every possible preference.", "More overlap may increase cannibalization and confusion."],
+    ["Raise all prices so the models appear more differentiated.", "Price alone does not clarify product roles or customer benefits."],
+    ["Review the line architecture, remove weak overlaps, and sharpen the value proposition of the remaining models.", "Correct. Portfolio management should balance coverage with clarity and economic performance."],
+    ["Stop measuring product-level sales because cannibalization is unavoidable.", "Product-level performance is necessary to diagnose overlap and resource allocation."],
+  ]),
+  caseQ("ch09-case-q034", 9, "213–220", "A medical device is technically superior, but hospitals hesitate because staff would need extensive training and workflow changes. What should the launch plan address?", 1, [
+    ["Only the technical specification, because buyers will adapt if the device is better.", "Technical advantage may not overcome adoption barriers without implementation support."],
+    ["Trialability, training, compatibility with existing workflows, and evidence of the operational benefit.", "Correct. Adoption depends on more than relative performance; complexity and perceived risk matter."],
+    ["A broad consumer campaign unrelated to hospital decision makers.", "The adoption process involves organizational users and decision makers who need relevant evidence."],
+    ["A lower price that leaves implementation concerns unresolved.", "Price may reduce one barrier but does not solve training and workflow risk."],
+  ]),
+  caseQ("ch09-case-q035", 9, "217–225", "A mature cosmetics brand wants younger customers but plans to change its packaging, channels, and product range without understanding why the target avoids the brand. What should it do first?", 3, [
+    ["Copy the visual identity of the most popular youth brand.", "Imitation may not address the target's actual barriers or create credible differentiation."],
+    ["Launch every planned change at once so the market cannot compare alternatives.", "Large simultaneous changes can make learning difficult and increase execution risk."],
+    ["Assume younger customers reject all established brands.", "The team needs evidence rather than a stereotype about the target."],
+    ["Research the target's needs, perceptions, and barriers, then design a coherent offer and experience that addresses them.", "Correct. Product management should connect growth moves to customer insight and credible value."],
+  ]),
+  caseQ("ch09-case-q036", 9, "226–233", "A weak product sells slowly, consumes inventory space, and attracts little strategic interest, while a related product performs well with the same target. What should the firm consider?", 0, [
+    ["Pruning or discontinuing the weak product so resources can support stronger, more valuable offers.", "Correct. Portfolio management includes deciding when to remove products that consume resources without sufficient value."],
+    ["Keeping the weak product forever because every product protects the brand.", "A weak offer can create cost, confusion, and opportunity loss."],
+    ["Adding line extensions to the weak product before diagnosing its role.", "More extensions can worsen overlap and resource use."],
+    ["Hiding the weak product's performance so customers do not question the portfolio.", "Management needs accurate evidence to allocate resources and serve customers well."],
+  ]),
+  caseQ("ch09-case-q037", 9, "228–233", "Two watch brands collaborate on a playful limited edition. Each contributes a credible strength, and the launch attracts new audiences without abandoning either brand's identity. What should the partners protect?", 2, [
+    ["A promise that the product will appeal equally to every customer of both brands.", "Different customers may respond differently, and broad appeal is not guaranteed."],
+    ["The idea that collaboration eliminates the need for product quality.", "A collaboration still needs a credible product and experience."],
+    ["A clear fit between the partners, the product's value, and the associations each brand wants to reinforce.", "Correct. Collaboration can create interest when the combination is meaningful and credible."],
+    ["Complete separation between the two brands so customers cannot understand the collaboration.", "The value of collaboration partly comes from a clear and relevant combination."],
+  ]),
+
   // Midterm case-study questions — Chapter 12
   caseQ("ch12-case-q001", 12, "311–315", "A software brand publishes a useful guide that customers find through search, subscribe to receive more help, and later request a product demo. Which approach is this?", 2, [
     ["Outbound interruption only", "The customer is attracted through useful content rather than only being interrupted by a pushed message."],
@@ -2937,6 +3471,79 @@ export const questionBank = [
     ["A brand-extension process", "No new product category or portfolio decision is described."],
     ["The promotion strategy process of planning, implementation, evaluation, and corrective action.", "Correct. This is the complete process laid out in Chapter 12."],
     ["A market-size process based on TAM, SAM, and SOM", "Those are market-sizing concepts, not promotion steps."],
+  ]),
+
+  caseQ("ch12-case-q026", 12, "311–316", "A new budgeting app is unknown to its target audience. The launch team wants people first to understand the problem it solves before asking them to sign up. Which communication objective should lead the first phase?", 0, [
+    ["Build awareness and understanding of the problem and the app's relevant value before pushing for conversion.", "Correct. Early communication should match the audience's stage rather than demand an immediate commitment."],
+    ["Offer a loyalty reward to customers who have never heard of the app.", "Loyalty tools are premature when the audience lacks basic awareness and understanding."],
+    ["Use only a checkout discount because customers already know the category.", "A discount may not explain why this app is relevant or different."],
+    ["Ask existing users to renew before the new audience understands the offer.", "Retention communication serves existing users and does not solve the launch audience's awareness gap."],
+  ]),
+  caseQ("ch12-case-q027", 12, "312–318", "A software buyer understands the problem, compares vendors, downloads a case study, and attends a webinar before requesting a sales call. Which content response fits best?", 2, [
+    ["A broad awareness message that avoids details and assumes no evaluation is taking place.", "The buyer is already evaluating alternatives and needs useful evidence, not only broad awareness."],
+    ["A post-purchase loyalty message because the buyer has interacted with the brand.", "Interaction before a sales call is not post-purchase loyalty."],
+    ["Educational and proof-oriented content that helps the buyer evaluate the solution and move toward conversion.", "Correct. The content should match the middle-to-lower funnel decision stage."],
+    ["A message designed only to entertain people with no connection to the buying problem.", "Entertainment may attract attention, but it does not address the buyer's evaluation need."],
+  ]),
+  caseQ("ch12-case-q028", 12, "316–322", "A home-insurance brand uses a family's recovery story after a flood, showing how preparation and support helped them rebuild. Why might this message be effective?", 1, [
+    ["It proves that a story is always more persuasive than product information.", "Storytelling can be powerful, but its effectiveness depends on relevance, credibility, and execution."],
+    ["It gives an abstract promise emotional meaning by showing a human situation the audience can understand.", "Correct. Storytelling can create emotional connection while making the benefit concrete."],
+    ["It removes the need to explain coverage, exclusions, or the actual service.", "Emotional meaning should complement, not replace, clear and accurate information."],
+    ["It targets every insurance customer with exactly the same personal experience.", "A story may resonate differently across audiences and should be used with audience understanding."],
+  ]),
+  caseQ("ch12-case-q029", 12, "318–323", "A beverage campaign uses a celebrity who is popular but has no credible connection to the product benefit. Awareness rises, but customers do not remember why the brand matters. What should the team reconsider?", 3, [
+    ["Whether the celebrity's reach was large enough to make the campaign impossible to improve.", "Reach does not guarantee relevance or memory for the brand benefit."],
+    ["Whether to remove the product benefit so the celebrity remains the only message.", "The product and its value should remain central to the communication."],
+    ["Whether every celebrity campaign should be replaced by a price discount.", "The issue is fit and message strategy, not a universal preference for discounts."],
+    ["Whether the endorser and creative idea provide credible, relevant support for the brand's intended meaning.", "Correct. A famous person can attract attention without creating useful brand association."],
+  ]),
+  caseQ("ch12-case-q030", 12, "319–324", "A hotel has quiet weekdays because its main customers travel for business. It promotes short leisure packages to local couples for Friday and Saturday nights. What is the hotel trying to do?", 0, [
+    ["Cultivate demand during a nonpeak period by attracting a different customer occasion.", "Correct. The hotel is using promotion and an appropriate offer to address low demand on weekends."],
+    ["Implement premium pricing for business travelers during the week.", "The scenario focuses on building weekend demand, not charging a premium to business travelers."],
+    ["Promote a complementary service without changing the demand pattern.", "The central goal is to fill nonpeak capacity with a different use occasion."],
+    ["Install a reservation system so the hotel no longer needs marketing.", "A reservation system manages demand but does not create the leisure demand described."],
+  ]),
+  caseQ("ch12-case-q031", 12, "321–326", "A brand sets a campaign objective of increasing qualified trial among a defined audience, assigns budget to reach and conversion activities, and measures trial rather than impressions alone. What is the team doing well?", 2, [
+    ["Treating media reach as the final business outcome.", "Reach is an input or intermediate measure, not necessarily the desired outcome."],
+    ["Choosing channels before deciding what the campaign should change.", "The scenario begins with a defined objective and aligns measurement to it."],
+    ["Connecting the communication objective, budget, activities, and performance measures to a desired customer response.", "Correct. Integrated planning links what the campaign does with what it is meant to achieve."],
+    ["Avoiding accountability by measuring only creative quality.", "The team is doing the opposite by defining and measuring a customer response."],
+  ]),
+  caseQ("ch12-case-q032", 12, "323–329", "A cosmetics brand asks customers for permission to receive personalized product education by email and allows them to change preferences at any time. Why can this approach be valuable?", 1, [
+    ["Permission means the brand can send any message without considering relevance.", "Permission does not remove the need for relevant, respectful communication."],
+    ["It can create a direct relationship and useful first-party insight while giving customers control over the communication.", "Correct. Permission-based direct marketing can support relevance and trust when managed responsibly."],
+    ["It guarantees every recipient will purchase after opening an email.", "Permission improves the relationship opportunity but cannot guarantee conversion."],
+    ["It replaces the need for a useful product and customer experience.", "Communication cannot substitute for the value delivered by the offer."],
+  ]),
+  caseQ("ch12-case-q033", 12, "324–329", "A campaign performs well in a pretest in one country but receives complaints in another because a gesture in the ad has a different cultural meaning. What should the brand do?", 3, [
+    ["Use the original ad everywhere because pretesting in one market proves universal effectiveness.", "Cultural meaning can vary, so one market's pretest does not guarantee another market's response."],
+    ["Stop pretesting because the problem proves research is unreliable.", "The result shows the need for market-specific evaluation, not the uselessness of pretesting."],
+    ["Ignore the complaints if the media has already been purchased.", "Continuing a damaging execution can harm trust and brand meaning."],
+    ["Investigate the local interpretation, adapt the execution, and evaluate the revised message in that market.", "Correct. Effective communication requires cultural relevance and local learning."],
+  ]),
+  caseQ("ch12-case-q034", 12, "326–331", "A campaign uses practical demonstrations for customers comparing solutions and short emotional stories for people who have not yet recognized the problem. Why is this mix sensible?", 0, [
+    ["Different audience stages can require different content roles, appeals, and levels of information.", "Correct. Communication should match what the audience knows and what response the marketer wants next."],
+    ["All audiences should receive the same message because consistency means identical execution.", "A coherent brand can still use stage-appropriate content and formats."],
+    ["Emotional content is only appropriate after purchase.", "Emotion can support awareness and connection before purchase as well as after it."],
+    ["Demonstrations are useful only when customers have already become loyal.", "Demonstrations can help evaluation and reduce uncertainty before conversion."],
+  ]),
+  caseQ("ch12-case-q035", 12, "319–326", "A retailer's promotion increases coupon redemption but reduces full-price purchases and attracts many customers who never return. What should the manager examine?", 2, [
+    ["Only the redemption count, because every redeemed coupon is a successful customer relationship.", "Redemption is an activity measure and may hide margin or retention consequences."],
+    ["Whether the brand should run increasingly large discounts to maintain volume.", "Larger discounts may deepen dependence without solving the quality of demand."],
+    ["Whether the promotion is creating incremental, profitable, and strategically useful behavior rather than merely shifting timing or price.", "Correct. Promotion should be evaluated against the intended customer and business outcome."],
+    ["Whether customer loyalty can be measured only by social-media followers.", "Loyalty requires broader behavioral and relationship evidence."],
+  ]),
+  caseQ("ch12-case-q036", 12, "321–329", "An agency proposes a clever campaign, but the brief does not identify the target audience, desired response, brand promise, or evidence that must be communicated. What should the brand marketer do?", 1, [
+    ["Approve the idea because creative quality makes strategic direction unnecessary.", "Strong creative still needs a clear audience, objective, and brand role."],
+    ["Strengthen the brief so the creative work is anchored in customer insight, communication objectives, and the value proposition.", "Correct. A useful brief aligns agency execution with the marketing strategy."],
+    ["Give the agency complete control over the product and service promise.", "The brand marketer remains responsible for strategic clarity and the truth of the promise."],
+    ["Replace the campaign with a discount before defining what communication should achieve.", "A discount is not a substitute for a clear communication problem and objective."],
+  ]),
+  caseQ("ch12-case-q037", 12, "311–331", "A campaign is popular and receives positive comments, but sales remain unchanged. The team discovers that the message is memorable but does not tell customers what to do next or where to buy. What should be fixed?", 3, [
+    ["Remove all emotional content because emotions cannot affect marketing outcomes.", "Emotion can help attention and connection; the issue is the missing path to action."],
+    ["Buy more reach so customers see the same message more frequently.", "More reach will not necessarily solve the lack of action guidance or access."],
+    ["Measure only positive comments because they prove the campaign has worked.", "Positive reactions do not establish the desired commercial or behavioral response."],
+    ["Connect the message to a clear value, call to action, and accessible route to purchase or trial.", "Correct. Effective promotion should move the intended audience toward the next response."],
   ]),
 
   // Chapter 13
