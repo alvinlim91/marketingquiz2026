@@ -1,13 +1,15 @@
-import { chapters, questionBank } from "./questions.js";
+import { chapters, midtermCaseStudyBank, questionBank } from "./questions.js";
 import { resetQuestionHistory, selectBalancedQuestions, shuffle } from "./quizLogic.js";
 
 const app = document.querySelector("#app");
 const bankSummary = document.querySelector("#bank-summary");
 const HISTORY_KEY = "marketing-mcq-history-v2";
 const ACTIVE_QUIZ_KEY = "marketing-mcq-active-v1";
+const MIDTERM_CHAPTERS = [1, 2, 3, 4, 6, 8, 9, 12];
 
 const state = {
   view: "home",
+  practiceMode: "standard",
   selectedChapters: chapters.map((chapter) => chapter.number),
   countMode: "10",
   customCount: 10,
@@ -20,7 +22,17 @@ const state = {
   mistakes: [],
 };
 
-bankSummary.textContent = `${questionBank.length} questions · ${chapters.length} chapters`;
+function getActiveQuestionBank() {
+  return state.practiceMode === "midterm-special" ? midtermCaseStudyBank : questionBank;
+}
+
+function getSelectableChapters() {
+  return state.practiceMode === "midterm-special" ? MIDTERM_CHAPTERS : chapters.map((chapter) => chapter.number);
+}
+
+function updateBankSummary() {
+  bankSummary.textContent = `${getActiveQuestionBank().length} questions · ${chapters.length} chapters`;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -36,7 +48,7 @@ function getChapterTitle(chapterNumber) {
 }
 
 function getChapterPool(chapterNumber) {
-  return questionBank.filter((question) => Number(question.chapter) === Number(chapterNumber));
+  return getActiveQuestionBank().filter((question) => Number(question.chapter) === Number(chapterNumber));
 }
 
 function getEligibleCount() {
@@ -78,6 +90,7 @@ function writeActiveQuiz() {
     localStorage.setItem(ACTIVE_QUIZ_KEY, JSON.stringify({
       version: 1,
       view: state.view,
+      practiceMode: state.practiceMode,
       selectedChapters: state.selectedChapters,
       countMode: state.countMode,
       customCount: state.customCount,
@@ -135,6 +148,7 @@ function restoreActiveQuiz() {
     }
 
     state.view = "quiz";
+    state.practiceMode = stored.practiceMode === "midterm-special" ? "midterm-special" : "standard";
     state.selectedChapters = Array.isArray(stored.selectedChapters) ? stored.selectedChapters : state.selectedChapters;
     state.countMode = stored.countMode ?? state.countMode;
     state.customCount = Number(stored.customCount) || state.customCount;
@@ -163,10 +177,15 @@ function render() {
 }
 
 function renderHome() {
+  updateBankSummary();
   const eligibleCount = getEligibleCount();
   const requestedCount = getRequestedCount();
-  const allSelected = state.selectedChapters.length === chapters.length;
+  const selectableChapters = getSelectableChapters();
+  const allSelected = state.selectedChapters.length === selectableChapters.length
+    && selectableChapters.every((chapter) => state.selectedChapters.includes(chapter));
+  const isMidtermSpecial = state.practiceMode === "midterm-special";
   const validCount = eligibleCount > 0 && requestedCount >= 1 && requestedCount <= eligibleCount;
+  const previousChapterScrollTop = document.querySelector(".chapter-list")?.scrollTop ?? 0;
 
   app.innerHTML = `
     <section class="hero home-hero">
@@ -179,24 +198,34 @@ function renderHome() {
     </section>
     <div class="study-metrics" aria-label="Question bank summary">
       <div class="metric"><strong>${chapters.length}</strong><span>Chapters</span></div>
-      <div class="metric"><strong>${questionBank.length}</strong><span>Questions</span></div>
+      <div class="metric"><strong>${getActiveQuestionBank().length}</strong><span>Questions</span></div>
       <div class="metric"><strong>${getEncounteredCount()} / ${eligibleCount}</strong><span>Selected questions encountered</span></div>
     </div>
     <section class="setup-grid" aria-label="Quiz setup">
       <div class="card setup-card">
+        <div class="field setup-field mode-field">
+          <div class="section-heading">
+            <span class="section-number">00</span>
+            <div><h3>Practice mode</h3><p>Choose regular practice or the midterm case-study set.</p></div>
+          </div>
+          <div class="practice-modes" aria-label="Practice mode">
+            <button class="practice-mode ${state.practiceMode === "standard" ? "selected" : ""}" type="button" data-practice-mode="standard"><strong>Full Question Bank</strong><span>${questionBank.length} questions across all chapters</span></button>
+            <button class="practice-mode ${isMidtermSpecial ? "selected" : ""}" type="button" data-practice-mode="midterm-special"><strong>MID TERM SPECIAL</strong><span>${midtermCaseStudyBank.length} scenario-based questions · Chapters 1, 2, 3, 4, 6, 8, 9, 12</span></button>
+          </div>
+        </div>
         <div class="field setup-field">
           <div class="section-heading">
             <span class="section-number">01</span>
             <div><h3>Select chapters</h3><p>Choose the chapters you want to include.</p></div>
           </div>
           <div class="chapter-actions">
-            <label class="select-all-row"><input id="select-all" type="checkbox" ${allSelected ? "checked" : ""} /> <span>Select All</span></label>
-            <span class="field-help">${state.selectedChapters.length} of ${chapters.length} selected</span>
+            <label class="select-all-row"><input id="select-all" type="checkbox" ${allSelected ? "checked" : ""} /> <span>${isMidtermSpecial ? "Select All Midterm Chapters" : "Select All"}</span></label>
+            <span class="field-help">${state.selectedChapters.length} of ${selectableChapters.length} available selected</span>
           </div>
           <div class="chapter-list" aria-label="Textbook chapters">
             ${chapters.map((chapter) => `
               <label class="chapter-check">
-                <input type="checkbox" data-chapter="${chapter.number}" ${state.selectedChapters.includes(chapter.number) ? "checked" : ""} />
+                <input type="checkbox" data-chapter="${chapter.number}" ${state.selectedChapters.includes(chapter.number) ? "checked" : ""} ${isMidtermSpecial && !MIDTERM_CHAPTERS.includes(chapter.number) ? "disabled" : ""} />
                 <span><strong>Chapter ${chapter.number}</strong><span> — ${escapeHtml(chapter.title)}</span><small>${getChapterPool(chapter.number).length} questions currently available</small></span>
               </label>`).join("")}
           </div>
@@ -234,16 +263,30 @@ function renderHome() {
 
   const selectAll = document.querySelector("#select-all");
   selectAll.indeterminate = state.selectedChapters.length > 0 && !allSelected;
+  const chapterList = document.querySelector(".chapter-list");
+  chapterList.scrollTop = previousChapterScrollTop;
   selectAll.addEventListener("change", (event) => {
-    state.selectedChapters = event.target.checked ? chapters.map((chapter) => chapter.number) : [];
+    state.selectedChapters = event.target.checked ? [...selectableChapters] : [];
     renderHome();
   });
   document.querySelectorAll("[data-chapter]").forEach((checkbox) => {
     checkbox.addEventListener("change", (event) => {
       const chapter = Number(event.target.dataset.chapter);
+      if (!selectableChapters.includes(chapter)) return;
       state.selectedChapters = event.target.checked
         ? [...new Set([...state.selectedChapters, chapter])].sort((a, b) => a - b)
         : state.selectedChapters.filter((selectedChapter) => selectedChapter !== chapter);
+      renderHome();
+    });
+  });
+  document.querySelectorAll("[data-practice-mode]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const nextMode = button.dataset.practiceMode;
+      if (state.practiceMode === nextMode) return;
+      state.practiceMode = nextMode;
+      state.selectedChapters = nextMode === "midterm-special" ? [...MIDTERM_CHAPTERS] : chapters.map((chapter) => chapter.number);
+      state.countMode = "10";
+      state.customCount = 10;
       renderHome();
     });
   });

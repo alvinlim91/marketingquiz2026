@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { midtermCaseStudyBank } from "../questions.js";
 import { calculateBalancedAllocation, resetQuestionHistory, selectBalancedQuestions } from "../quizLogic.js";
 
 const allChapters = Array.from({ length: 15 }, (_, index) => index + 1);
@@ -20,6 +21,16 @@ function chapterCounts(questions) {
 }
 
 const bank600 = makeBank(40);
+
+test("midterm special bank contains 25 case-study questions for each covered chapter", () => {
+  const midtermChapters = [1, 2, 3, 4, 6, 8, 9, 12];
+  assert.equal(midtermCaseStudyBank.length, 200);
+  assert.ok(midtermCaseStudyBank.every((question) => question.caseStudy === true));
+  assert.deepEqual(
+    Object.fromEntries(midtermChapters.map((chapter) => [chapter, midtermCaseStudyBank.filter((question) => question.chapter === chapter).length])),
+    Object.fromEntries(midtermChapters.map((chapter) => [chapter, 25])),
+  );
+});
 
 test("30 questions across all 15 chapters gives exactly 2 per chapter", () => {
   const result = selectBalancedQuestions({ questionBank: bank600, selectedChapters: allChapters, count: 30, random: () => 0.37 });

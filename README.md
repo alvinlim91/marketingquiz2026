@@ -34,7 +34,7 @@ Questions live separately from the UI in [`questions.js`](./questions.js). The e
 
 When adding a question, verify the printed page number inside the PDF first. Keep the correct answer as a stable option ID; the UI randomizes option order safely at quiz start.
 
-The setup screen supports selecting any combination of the 15 chapters. The selector allocates questions as evenly as possible across the selected chapters; when the count is smaller than the number of selected chapters, it randomly chooses which chapters are represented. The remainder in an uneven allocation is also random.
+The setup screen supports selecting any combination of the 15 chapters. The selector allocates questions as evenly as possible across the selected chapters; when the count is smaller than the number of selected chapters, it randomly chooses which chapters are represented. The remainder in an uneven allocation is also random. **MID TERM SPECIAL** is a separate mode with 200 scenario-based questions: 25 each from Chapters 1, 2, 3, 4, 6, 8, 9, and 12.
 
 The app stores per-chapter encountered-question IDs in `localStorage` so new sessions prefer questions that have not appeared recently. An active quiz session is also saved in `localStorage` after each answer selection, submission, and question change, so refreshing or reopening the same browser can resume the exact question, score, feedback state, and selected chapters. This is device/browser-local only; clearing site data or using another browser/device will not carry the session over. The quiz screen includes **Exit & discard** for intentionally abandoning a saved session, and the setup screen includes **Reset question history**.
 
